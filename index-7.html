@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جامعه‌شناسی ۱ – پایه دهم</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f4f6fb;--sf:#fff;--tx:#0f172a;--mu:#64748b;--pr:#4f46e5;--pr2:#06b6d4;--ok:#16a34a;--no:#e11d48;--bd:#e4e7f1;--sh:0 10px 30px rgba(15,23,42,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e1a;--sf:#141829;--tx:#eef1fb;--mu:#8d97b5;--pr:#7c83ff;--pr2:#22d3ee;--ok:#4ade80;--no:#fb7185;--bd:#262c44;--sh:0 10px 30px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#0b0e1a;--sf:#141829;--tx:#eef1fb;--mu:#8d97b5;--pr:#7c83ff;--pr2:#22d3ee;--ok:#4ade80;--no:#fb7185;--bd:#262c44;--sh:0 10px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,system-ui,sans-serif;line-height:1.9;min-height:100vh;overflow-x:hidden;transition:background .5s,color .5s}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px 400px at 85% -5%,color-mix(in srgb,var(--pr) 28%,transparent),transparent),radial-gradient(500px 380px at 5% 105%,color-mix(in srgb,var(--pr2) 26%,transparent),transparent);animation:aur 16s ease-in-out infinite alternate}
+@keyframes aur{to{transform:scale(1.12) translate(-14px,10px)}}
+.w{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:78px 16px 130px}
+.pg{display:none}.pg.on{display:block;animation:pgi .55s cubic-bezier(.2,.9,.3,1) both}
+@keyframes pgi{from{opacity:0;transform:translateY(24px)}}
+h1,h2,h3{margin:0}
+.mu{color:var(--mu)}.hide{display:none!important}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:18px;box-shadow:var(--sh);animation:up .6s cubic-bezier(.2,.9,.3,1) both;margin:12px 0}
+@keyframes up{from{opacity:0;transform:translateY(20px) scale(.97)}}
+.btn{font:inherit;font-weight:600;border:0;border-radius:16px;padding:10px 20px;cursor:pointer;color:#fff;background:linear-gradient(120deg,var(--pr),var(--pr2));transition:transform .3s cubic-bezier(.34,1.6,.5,1),filter .3s;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.08)}.btn:active{transform:scale(.95)}
+.btn.g{background:var(--bg);color:var(--tx);border:1px solid var(--bd)}
+.btn.d{background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no);padding:6px 12px;font-size:.85rem}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.top{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:45;width:46px;height:46px;border-radius:16px;border:1px solid var(--bd);background:var(--sf);box-shadow:var(--sh);cursor:pointer;display:grid;place-content:center;font-size:1.25rem;color:var(--tx);transition:transform .35s cubic-bezier(.34,1.6,.5,1)}
+.top:hover{transform:scale(1.1) rotate(-6deg)}
+#hb{left:14px;gap:5px}#th{right:14px}
+#hb i{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--tx);transition:transform .4s,opacity .3s}
+#hb.x i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}#hb.x i:nth-child(2){opacity:0}#hb.x i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+#hb.adm::after{content:"";position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--sf)}
+/* home */
+.hero{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border:0;position:relative;overflow:hidden;padding:26px 22px}
+.hero::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.16);left:-60px;bottom:-90px;animation:fl 9s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translate(40px,-30px) scale(1.2)}}
+.hero h1{font-size:1.6rem;font-weight:800}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:16px;box-shadow:var(--sh);cursor:pointer;text-align:right;font:inherit;color:var(--tx);animation:up .6s both;transition:transform .35s cubic-bezier(.34,1.6,.5,1)}
+.tile:hover{transform:translateY(-4px)}.tile:active{transform:scale(.97)}
+.tile b.n{display:block;font-size:2rem;font-weight:800;background:linear-gradient(120deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.3}
+.tile .ic{font-size:1.6rem}
+/* dock */
+.dock{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:min(420px,calc(100% - 28px));background:color-mix(in srgb,var(--sf) 88%,transparent);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:26px;box-shadow:0 14px 40px rgba(15,23,42,.22);display:flex;padding:6px}
+.dock button{flex:1;font:inherit;font-size:.82rem;font-weight:600;color:var(--mu);background:none;border:0;padding:8px 4px;border-radius:20px;cursor:pointer;position:relative;z-index:1;display:grid;place-items:center;line-height:1.4;transition:color .3s}
+.dock button span{font-size:1.25rem;transition:transform .4s cubic-bezier(.34,1.8,.5,1)}
+.dock button.on{color:#fff}.dock button.on span{transform:translateY(-2px) scale(1.18)}
+.pill{position:absolute;top:6px;bottom:6px;border-radius:20px;background:linear-gradient(120deg,var(--pr),var(--pr2));transition:left .5s cubic-bezier(.34,1.35,.5,1),width .5s cubic-bezier(.34,1.35,.5,1)}
+/* options */
+.opt{display:block;width:100%;text-align:right;font:inherit;color:var(--tx);background:transparent;border:1.5px solid var(--bd);border-radius:16px;padding:10px 14px;margin:8px 0;cursor:pointer;transition:all .35s cubic-bezier(.2,.9,.3,1)}
+.opt:hover{transform:translateX(-4px);border-color:var(--pr)}
+.opt.sel{border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,transparent);transform:translateX(-7px)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 16%,transparent)}
+.ans{max-height:0;overflow:hidden;opacity:0;color:var(--ok);font-weight:600;transition:max-height .5s,opacity .5s,margin .5s}.ans.show{max-height:90px;opacity:1;margin-top:10px}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pr),var(--pr2));border-radius:8px;transition:width .6s cubic-bezier(.2,.9,.3,1)}
+.tm{font-weight:800;color:var(--pr)}
+.ao{display:none!important}body.adm .ao{display:inline-flex!important}body.adm div.ao{display:flex!important}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.8rem;background:color-mix(in srgb,var(--pr) 14%,transparent);color:var(--pr)}
+/* modals */
+.mask{position:fixed;inset:0;z-index:50;background:rgba(8,10,25,.55);backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .35s;display:grid;place-items:center;padding:16px;overflow-y:auto}
+.mask.on{opacity:1;pointer-events:auto}
+.modal{width:100%;max-width:400px;max-height:92vh;overflow-y:auto;background:var(--sf);border:1px solid var(--bd);border-radius:28px;padding:22px;box-shadow:var(--sh);transform:scale(.8) translateY(34px);opacity:0;transition:transform .55s cubic-bezier(.34,1.5,.5,1),opacity .3s}
+.mask.on .modal{transform:none;opacity:1}.modal.shake{animation:sh .45s}
+@keyframes sh{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+input,select{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:14px;padding:9px 13px;margin:5px 0;outline:0;transition:border-color .3s,box-shadow .3s}
+input:focus,select:focus{border-color:var(--pr);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr) 20%,transparent)}
+input[type=checkbox]{width:auto;margin:0 0 0 8px}
+.err{color:var(--no);min-height:1.6em;font-size:.9rem}
+.dr{position:fixed;top:0;bottom:0;left:0;width:min(430px,94vw);z-index:35;background:var(--bg);border-right:1px solid var(--bd);box-shadow:var(--sh);transform:translateX(-105%);transition:transform .6s cubic-bezier(.2,.9,.3,1);padding:74px 14px 24px;overflow-y:auto}
+.dr.on{transform:none}
+.seg{display:flex;background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:5px;position:relative}
+.seg button{flex:1;font:inherit;font-weight:600;color:var(--mu);background:none;border:0;padding:7px 4px;border-radius:12px;cursor:pointer;position:relative;z-index:1;transition:color .3s}
+.seg button.on{color:#fff}.seg .pill{top:5px;bottom:5px;border-radius:12px}
+.it{padding:10px 12px;border:1px solid var(--bd);border-radius:16px;margin:8px 0;background:var(--sf);animation:up .5s both}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.2em}
+.top .ic{width:22px;height:22px}.dock .ic{width:22px;height:22px}
+.tm{display:inline-flex;align-items:center;gap:4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.tile b.n{font-size:1.5rem;line-height:1.2}
+.ib{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(120deg,var(--pr),var(--pr2));flex:none}
+.ib .ic{width:22px;height:22px}
+.bk{position:fixed;inset:0;z-index:34;background:rgba(8,10,25,.45);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .5s}.bk.on{opacity:1;pointer-events:auto}
+.modal.wide{max-width:620px}.qb{border:1px solid var(--bd);border-radius:18px;padding:10px;margin:10px 0}.qb input.qt{font-weight:600}.qb .chip input{margin:0 0 0 6px;vertical-align:middle}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none!important;filter:none!important}
+.chip.live{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.ball{display:none;position:absolute;top:4px;left:calc(50% + 8px);width:13px;height:13px;border-radius:50%;background:#22c55e;border:2px solid var(--sf);animation:pl 1.4s infinite,bn 1s ease-in-out infinite alternate}
+.ball.on{display:block}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(34,197,94,.75)}70%,100%{box-shadow:0 0 0 13px rgba(34,197,94,0)}}
+@keyframes bn{to{transform:translateY(-4px)}}
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 70px);transform:translate(-50%,-24px);z-index:60;background:var(--sf);border:1.5px solid var(--ok);color:var(--tx);padding:10px 18px;border-radius:18px;box-shadow:var(--sh);opacity:0;pointer-events:none;transition:all .55s cubic-bezier(.34,1.5,.5,1);display:flex;gap:8px;align-items:center;width:max-content;max-width:92vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}.toast .ic{color:var(--ok)}
+@media (prefers-reduced-motion:reduce){body::before,.hero::after{animation:none!important}}
+/* premium compact capsule dock */
+.dock{width:min(330px,calc(100% - 44px));bottom:calc(env(safe-area-inset-bottom,0px) + 26px);padding:4px;border-radius:999px;background:color-mix(in srgb,var(--sf) 72%,transparent);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border:1px solid color-mix(in srgb,#fff 14%,var(--bd));box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12)}
+.dock button{font-size:.68rem;padding:6px 2px;border-radius:999px;line-height:1.25}
+.dock button span{font-size:1rem}
+.dock .ic{width:18px;height:18px}
+.dock .pill{top:4px;bottom:4px;border-radius:999px;box-shadow:0 4px 14px color-mix(in srgb,var(--pr) 45%,transparent)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v14H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h14v-4"/></symbol>
+<symbol id="i-exam" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 14l2 2 4-4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6M10 19a2 2 0 0 0 4 0"/></symbol>
+</defs></svg>
+<button class="top" id="hb" aria-label="منو"><svg class="ic"><use href="#i-menu"/></svg></button>
+<button class="top" id="th" aria-label="تم"></button>
+
+<div class="w">
+  <section class="pg on" id="pg-home">
+    <div style="margin-bottom:14px"><h1 style="font-size:1.45rem;font-weight:800">جامعه‌شناسی ۱</h1><div class="mu">پایه دهم علوم انسانی</div></div>
+    <div class="grid">
+      <button class="tile" data-go="q" style="animation-delay:.1s"><span class="ib"><svg class="ic"><use href="#i-book"/></svg></span><span><b class="n" id="nq">0</b><span class="mu">نمونه سوال</span></span></button>
+      <button class="tile" data-go="e" style="animation-delay:.2s"><span class="ib"><svg class="ic"><use href="#i-exam"/></svg></span><span><b class="n" id="ne">0</b><span class="mu">آزمون</span></span></button>
+    </div>
+    <p class="mu" style="margin:14px 2px;font-size:.9rem">برای شروع از نوار پایین استفاده کن.</p>
+  </section>
+
+  <section class="pg" id="pg-q">
+    <div class="row"><h2>نمونه سوالات</h2><div class="row" style="gap:6px"><button class="btn g ao" id="upq"><svg class="ic"><use href="#i-upload"/></svg> آپلود فایل</button><button class="btn ao" id="addq"><svg class="ic"><use href="#i-plus"/></svg> افزودن سوال</button></div></div>
+    <div id="qlist"></div>
+  </section>
+
+  <section class="pg" id="pg-e">
+    <div id="ex-list-wrap">
+      <div class="row"><h2>آزمون‌ها</h2><div class="row" style="gap:6px"><button class="btn g ao" id="upe"><svg class="ic"><use href="#i-upload"/></svg> ساخت از فایل</button><button class="btn ao" id="adde"><svg class="ic"><use href="#i-plus"/></svg> ساخت آزمون</button></div></div>
+      <div id="elist"></div>
+    </div>
+    <div id="ex-run" class="hide">
+      <div class="card"><div class="row"><b id="prog"></b><span class="tm" id="tm"></span></div><div class="bar"><i id="pb"></i></div></div>
+      <div id="qbox"></div>
+      <div class="row"><button class="btn g" id="prev">قبلی</button><button class="btn g" id="next">بعدی</button><button class="btn" id="fin">پایان آزمون</button></div>
+    </div>
+    <div id="ex-res" class="hide"></div>
+  </section>
+</div>
+
+<nav class="dock" id="dock"><span class="pill"></span>
+  <button data-go="home" class="on"><span><svg class="ic"><use href="#i-home"/></svg></span>خانه</button>
+  <button data-go="q"><span><svg class="ic"><use href="#i-book"/></svg></span>نمونه سوالات</button>
+  <button data-go="e"><i class="ball" id="ball"></i><span><svg class="ic"><use href="#i-exam"/></svg></span>آزمون‌ها</button>
+</nav>
+
+<div class="bk" id="bk"></div>
+<aside class="dr" id="dr">
+  <div class="row" style="margin-bottom:10px"><h3>پنل مدیریت</h3><button class="btn g" id="lock"><svg class="ic"><use href="#i-lock"/></svg> خروج مدیر</button></div>
+  <div class="seg" id="aseg"><span class="pill"></span><button class="on" data-t="v">ثبت‌نام‌ها</button><button data-t="r">نتایج</button><button data-t="a">حضور</button><button data-t="c">پاکسازی</button></div>
+  <p class="mu" id="anote"></p><div id="alist"></div>
+</aside>
+
+<div class="mask on" id="gate"><div class="modal">
+  <h2>ثبت‌نام</h2><p class="mu">برای ورود، نام، نام خانوادگی و شماره تماس را وارد کن. ورود بدون ثبت‌نام ممکن نیست.</p>
+  <input id="gf" placeholder="نام" autocomplete="given-name"><input id="gl" placeholder="نام خانوادگی" autocomplete="family-name">
+  <input id="gp" placeholder="شماره تماس (11 رقم، مثل 09123456789)" inputmode="numeric" maxlength="11" autocomplete="tel"><div class="mu" id="gc" style="font-size:.85rem">0 از 11 رقم</div>
+  <div class="err" id="ge"></div><button class="btn" id="gb" style="width:100%">ورود به سایت</button>
+</div></div>
+<div class="mask" id="pinm"><div class="modal" id="pinbox">
+  <h3><svg class="ic"><use href="#i-lock"/></svg> ورود مدیر</h3><p class="mu">رمز عبور را وارد کن.</p>
+  <input id="pin" type="password" placeholder="رمز عبور" autocomplete="off"><div class="err" id="pe"></div>
+  <div class="row"><button class="btn" id="pb1" style="flex:1">ورود</button><button class="btn g" id="pc">بستن</button></div>
+</div></div>
+<div class="mask" id="gm"><div class="modal" id="gmb"></div></div>
+<input type="file" id="fi" accept="image/*,application/pdf" multiple class="hide">
+<div class="toast" id="toast"></div>
+
+<script>
+/* Netlify adapter: replaces Claude's shared db with /api/db (same API surface) */
+(function(){
+  if(window.claude&&window.claude.use)return;
+  var pin="";
+  document.addEventListener("input",function(e){if(e.target&&e.target.id==="pin")pin=e.target.value.trim().toLowerCase()},true);
+  function api(method,body,qs){
+    return fetch("/api/db"+(qs||""),{method:method,headers:{"content-type":"application/json","x-pin":pin},body:body?JSON.stringify(body):undefined,cache:"no-store"})
+      .then(function(r){if(!r.ok){var e=new Error("http");e.code=r.status;throw e}return r.json()});
+  }
+  var subs=[];
+  function poll(col){
+    var ss=subs.filter(function(s){return s.col===col});
+    if(!ss.length)return Promise.resolve();
+    return api("GET",null,"?col="+col).then(function(r){
+      var str=JSON.stringify(r.docs);
+      ss.forEach(function(s){
+        if(s.last===str&&!s.failed)return;
+        s.last=str;s.failed=false;
+        s.ok({docs:r.docs.map(function(d){return{id:d.id,data:function(){return d.data}}})});
+      });
+    }).catch(function(){ss.forEach(function(s){if(!s.failed){s.failed=true;if(s.err)s.err()}})});
+  }
+  function collection(col){return{
+    doc:function(id){return{
+      set:function(data){return api("POST",{col:col,id:id,data:data}).then(function(){poll(col)})},
+      delete:function(){return api("DELETE",{col:col,id:id}).then(function(){poll(col)})}
+    }},
+    onSnapshot:function(ok,err){var s={col:col,ok:ok,err:err,last:null,failed:false};subs.push(s);poll(col);return function(){subs=subs.filter(function(x){return x!==s})}}
+  }}
+  setInterval(function(){if(document.hidden)return;var seen={};subs.forEach(function(s){if(!seen[s.col]){seen[s.col]=1;poll(s.col)}})},5000);
+  window.claude={use:function(n){return n==="db"?Promise.resolve({collection:collection}):Promise.reject(new Error("unavailable"))}};
+})();
+</script>
+<script>
+const $=id=>document.getElementById(id),L=["الف","ب","ج","د"];
+const ic=n=>`<svg class="ic"><use href="#i-${n}"/></svg>`;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ls={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const PIN="mahdi a",COL={q:"questions",e:"exams",v:"visitors",r:"results",b:"bans",a:"attendance"};
+const S={q:[],e:[],v:[],r:[],b:[],a:[]};
+let db=null,uid=null,me=ls.get("me"),attempts=ls.get("att")||[],unlocked=false,ready=false,subAdm=false,errs={},atab="v",prevLive=null,loaded={};
+const DQ=[
+{q:"واژه «جامعه‌شناسی» (سوسیولوژی) را چه کسی ابداع کرد؟",o:["ابن‌خلدون","اگوست کنت","ماکس وبر","امیل دورکیم"],a:1},
+{q:"جامعه‌شناسی به مطالعه‌ی چه چیزی می‌پردازد؟",o:["فقط رفتار فردی انسان","زندگی اجتماعی انسان‌ها","فقط تاریخ گذشته","فقط اقتصاد جامعه"],a:1},
+{q:"کنش انسان چه ویژگی‌ای دارد که آن را از رفتار غریزی جدا می‌کند؟",o:["آگاهانه و هدف‌دار است","همیشه غیرارادی است","فقط در گروه رخ می‌دهد","همیشه یکسان است"],a:0},
+{q:"کنش اجتماعی کنشی است که:",o:["تنها در تنهایی انجام شود","با توجه به دیگران انجام شود","بدون هدف باشد","فقط توسط دولت انجام شود"],a:1},
+{q:"چه کسی در کتاب «مقدمه» علمی به نام «علم عمران» را مطرح کرد؟",o:["فارابی","ابن‌سینا","ابن‌خلدون","خواجه نصیر"],a:2},
+{q:"«هنجارها» چه هستند؟",o:["قواعد و معیارهای رفتار در جامعه","فقط قوانین مجازات","وسایل مادی جامعه","نام گروه‌های اجتماعی"],a:0},
+{q:"فرایند یادگیری هنجارها و ارزش‌های جامعه توسط افراد چه نام دارد؟",o:["جامعه‌پذیری","مهاجرت","تورم","نوآوری"],a:0},
+{q:"ارزش‌ها در جامعه به چه چیزهایی گفته می‌شود؟",o:["آنچه جامعه آن را خوب و مطلوب می‌داند","قیمت کالاها","اشیای قدیمی","قوانین رانندگی"],a:0},
+{q:"جایگاه فرد در گروه یا جامعه که با انتظارات رفتاری همراه است، چه نام دارد؟",o:["نقش اجتماعی","فرهنگ","کنش غریزی","آرمان"],a:0},
+{q:"کدام مورد از ویژگی‌های پدیده‌های اجتماعی است؟",o:["حاصل کنش‌های جمعی انسان‌هاست","فقط به یک نفر مربوط است","هیچ تأثیری بر افراد ندارد","غیرقابل مطالعه است"],a:0},
+{q:"جامعه‌شناسی چه تفاوتی با نظرات عامیانه درباره‌ی جامعه دارد؟",o:["بر پایه‌ی مطالعه و شواهد منظم است","هیچ تفاوتی ندارد","فقط به احساسات توجه می‌کند","فقط به گذشته نگاه می‌کند"],a:0}
+];
+const seedQ=()=>DQ.map((x,i)=>({id:"d"+i,...x,ts:i}));
+const seedE=()=>[{id:"d_exam",title:"آزمون نمونه",minutes:10,qs:DQ,ts:1}];
+const uidn=()=>"x"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+
+/* ---------- theme ---------- */
+function setTheme(t){document.documentElement.dataset.theme=t;ls.set("th",t);$("th").innerHTML=ic(t==="dark"?"sun":"moon")}
+setTheme(ls.get("th")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+$("th").onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+/* ---------- data layer ---------- */
+function persist(k){if(k==="q"||k==="e")ls.set("c_"+k,S[k])}
+function loadLocal(){
+  ["q","e"].forEach(k=>{S[k]=ls.get("c_"+k)||[]});
+  S.v=me?[{id:uid,name:me.name,phone:me.phone,ts:me.ts}]:[];
+  S.r=attempts.length&&me?[{id:uid,name:me.name,phone:me.phone,attempts}]:[];
+}
+function sub(k){
+  try{db.collection(COL[k]).onSnapshot(s=>{S[k]=s.docs.map(d=>({id:d.id,...d.data()}));errs[k]=false;loaded[k]=true;draw()},()=>{errs[k]=true;draw()})}catch(e){errs[k]=true}
+}
+function put(k,id,data){
+  if(db)return db.collection(COL[k]).doc(id).set(data).catch(()=>{errs.w=true;draw()});
+  const i=S[k].findIndex(x=>x.id===id);const o={id,...data};i>=0?S[k][i]=o:S[k].push(o);persist(k);draw();return Promise.resolve();
+}
+function del(k,id){
+  if(db)return db.collection(COL[k]).doc(id).delete().catch(()=>{});
+  S[k]=S[k].filter(x=>x.id!==id);persist(k);draw();return Promise.resolve();
+}
+async function clearCol(k){await Promise.all(S[k].map(x=>del(k,x.id)));if(!db){S[k]=[];persist(k);draw()}}
+function sync(){
+  if(!db||!uid||!me)return;
+  db.collection(COL.v).doc(uid).set({fn:me.fn,ln:me.ln,name:me.name,phone:me.phone,ts:me.ts}).catch(()=>{});
+  if(attempts.length)db.collection(COL.r).doc(uid).set({name:me.name,phone:me.phone,attempts:attempts.slice(-10)}).catch(()=>{});
+}
+(async()=>{
+  try{const u=await claude.use("user");if(u)uid=await u.id()}catch(e){}
+  try{db=await claude.use("db")}catch(e){}
+  if(!uid){uid=ls.get("uid")||("g"+Math.random().toString(36).slice(2,10));ls.set("uid",uid)}
+  ready=true;
+  if(db){sub("q");sub("e");sub("b");sync()}else loadLocal();
+  if(unlocked)subAdmin();draw();
+})();
+function subAdmin(){if(subAdm)return;subAdm=true;if(db){sub("v");sub("r");sub("a")}}
+
+/* ---------- ban + attendance helpers ---------- */
+async function hashPhone(p){try{const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("exam|"+p));return "b"+[...new Uint8Array(d)].slice(0,10).map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return "b"+p}}
+let myH=null;
+function setH(){if(me&&me.phone)hashPhone(me.phone).then(h=>{myH=h;draw()})}
+const isBanned=()=>!!myH&&S.b.some(x=>x.id===myH);
+const HC={};
+function hOf(p){if(p in HC)return HC[p];HC[p]="";hashPhone(p).then(h=>{HC[p]=h;if(unlocked&&$("dr").classList.contains("on"))renderAdmin()});return ""}
+const isBan=p=>{const h=hOf(p);return !!h&&S.b.some(x=>x.id===h)};
+const banBtn=p=>isBan(p)?`<button class="btn g" data-act="unban" data-ph="${esc(p)}">رفع مسدودی</button>`:`<button class="btn d" data-act="ban" data-ph="${esc(p)}">${ic("lock")} مسدود</button>`;
+const banChip=p=>isBan(p)?'<span class="chip" style="background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no)">مسدود</span>':"";
+function markAtt(e){if(unlocked||!me||!me.phone)return;put("a",me.phone+"_"+e.id,{name:me.name,phone:me.phone,examId:e.id,title:e.title,ts:Date.now()})}
+setH();
+
+/* ---------- gate ---------- */
+const fa2en=s=>s.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+
+$("gb").onclick=()=>{
+  const n=$("gn").value.trim(),p=fa2en($("gp").value.trim()).replace(/\s|-/g,"");
+  if(n.length<3){$("ge").textContent="نام را کامل وارد کن.";return}
+  if(!/^09\d{9}$/.test(p)){$("ge").textContent="شماره تماس معتبر نیست (مثل 09123456789).";return}
+  me={name:n,phone:p,ts:Date.now()};ls.set("me",me);$("gate").classList.remove("on");sync();draw();
+};
+
+/* ---------- navigation ---------- */
+const dockBtns=[...document.querySelectorAll("#dock button")];
+function pillTo(box,btn){const p=box.querySelector(".pill");if(!btn||!btn.offsetWidth)return;p.style.left=btn.offsetLeft+"px";p.style.width=btn.offsetWidth+"px"}
+function go(n){
+  document.querySelectorAll(".pg").forEach(p=>p.classList.toggle("on",p.id==="pg-"+n));
+  dockBtns.forEach(b=>b.classList.toggle("on",b.dataset.go===n));
+  pillTo($("dock"),dockBtns.find(b=>b.dataset.go===n));
+  if(n==="home")count();scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)go(g.dataset.go)});
+addEventListener("resize",()=>{pillTo($("dock"),dockBtns.find(b=>b.classList.contains("on")));pillTo($("aseg"),$("aseg").querySelector(".on"))});
+setTimeout(()=>pillTo($("dock"),dockBtns[0]),60);
+function count(){
+  [["nq",S.q.length],["ne",S.e.length]].forEach(([id,n])=>{const el=$(id);let i=0;const st=Math.max(1,Math.ceil(n/20));const t=setInterval(()=>{i=Math.min(n,i+st);el.textContent=i;if(i>=n)clearInterval(t)},35)});
+}
+
+/* ---------- rendering ---------- */
+const load='<div class="card mu">در حال بارگذاری…</div>';
+function draw(){
+  
+  if(!ready){$("qlist").innerHTML=load;$("elist").innerHTML=load;return}liveFx();
+  if(document.getElementById("pg-home").classList.contains("on")){$("nq").textContent=S.q.length;$("ne").textContent=S.e.length}
+  const qs=[...S.q].sort((a,b)=>(a.ts||0)-(b.ts||0));
+  $("qlist").innerHTML=(errs.w?'<div class="card mu">ذخیره‌سازی انجام نشد (دسترسی نوشتن نداری).</div>':"")+
+  (qs.map((x,i)=>`<div class="card" style="animation-delay:${Math.min(i,10)*50}ms"><div class="row"><b>${i+1}. ${esc(x.q)}</b></div>${(x.o||[]).map((o,j)=>`<div class="mu">${L[j]}) ${esc(o)}</div>`).join("")}<div class="row" style="margin-top:10px"><button class="btn g" data-act="ans">نمایش پاسخ</button><button class="btn g ao" data-act="editq" data-id="${esc(x.id)}">${ic("edit")} ویرایش</button><button class="btn d ao" data-act="delq" data-id="${esc(x.id)}">${ic("trash")} حذف</button></div><div class="ans">پاسخ: ${L[x.a]}) ${esc((x.o||[])[x.a])}</div></div>`).join("")||'<div class="card mu">هنوز سوالی ثبت نشده.</div>');
+  const es=[...S.e].sort((a,b)=>(b.ts||0)-(a.ts||0));
+  $("elist").innerHTML=es.map((x,i)=>`<div class="card" style="animation-delay:${Math.min(i,10)*60}ms"><b>${esc(x.title)}</b><div style="margin:6px 0"><span class="chip">${(x.qs||[]).length} سوال</span> <span class="chip">${esc(x.minutes)} دقیقه</span> ${x.live?'<span class="chip live">در حال برگزاری</span>':'<span class="chip">شروع نشده</span>'}</div><div class="row">${x.live?`<button class="btn" data-act="start" data-id="${esc(x.id)}">${ic("play")} ورود به آزمون</button>`:'<button class="btn g" disabled>منتظر شروع آزمون…</button>'}<button class="btn ao ${x.live?"d":""}" data-act="live" data-id="${esc(x.id)}">${x.live?ic("close")+" پایان آزمون":ic("play")+" شروع آزمون برای همه"}</button>${x.live?"":`<button class="btn g ao" data-act="start" data-id="${esc(x.id)}">اجرای آزمایشی</button>`}<button class="btn g ao" data-act="edite" data-id="${esc(x.id)}">${ic("edit")} ویرایش</button><button class="btn d ao" data-act="dele" data-id="${esc(x.id)}">${ic("trash")} حذف</button></div></div>`).join("")||'<div class="card mu">هنوز آزمونی ساخته نشده.</div>';
+  if($("dr").classList.contains("on"))renderAdmin();
+}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act,id=b.dataset.id;
+  if(a==="ans")b.closest(".card").querySelector(".ans").classList.toggle("show");
+  if(a==="delq"&&await ask("این سوال حذف شود؟"))del("q",id);
+  if(a==="dele"&&await ask("این آزمون حذف شود؟"))del("e",id);
+  if(a==="start")startExam(id);
+  if(a==="delv"&&await ask("این ثبت‌نام حذف شود؟"))del("v",id);
+  if(a==="delr"&&await ask("نتایج این فرد حذف شود؟"))del("r",id);
+  if(a==="ban"||a==="unban"){const h=await hashPhone(b.dataset.ph);if(a==="ban"){if(await ask("این دانش‌آموز از شرکت در آزمون‌ها محروم شود؟"))put("b",h,{ts:Date.now()})}else del("b",h)}
+});
+
+/* ---------- generic modal ---------- */
+function modal(html,wide){$("gmb").className="modal"+(wide?" wide":"");$("gmb").innerHTML=html;$("gm").classList.add("on")}
+function closeModal(){$("gm").classList.remove("on")}
+function ask(msg){return new Promise(res=>{
+  modal(`<h3>مطمئنی؟</h3><p class="mu">${esc(msg)}</p><div class="row"><button class="btn" id="cy" style="flex:1">بله</button><button class="btn g" id="cn" style="flex:1">انصراف</button></div>`);
+  $("cy").onclick=()=>{closeModal();res(true)};$("cn").onclick=()=>{closeModal();res(false)};
+})}
+$("addq").onclick=()=>{
+  modal(`<h3>سوال جدید</h3><input id="mq" placeholder="متن سوال">${[0,1,2,3].map(i=>`<input id="mo${i}" placeholder="گزینه ${L[i]}">`).join("")}<select id="ma">${L.map((l,i)=>`<option value="${i}">پاسخ درست: ${l}</option>`).join("")}</select><div class="err" id="me"></div><div class="row"><button class="btn" id="ms" style="flex:1">ذخیره</button><button class="btn g" id="mc">بستن</button></div>`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{
+    const q=$("mq").value.trim(),o=[0,1,2,3].map(i=>$("mo"+i).value.trim());
+    if(!q||o.some(x=>!x)){$("me").textContent="سوال و هر چهار گزینه را پر کن.";return}
+    put("q",uidn(),{q,o,a:+$("ma").value,ts:Date.now()});closeModal();
+  };
+};
+$("adde").onclick=()=>{
+  if(!S.q.length){modal(`<h3>ابتدا سوال اضافه کن</h3><p class="mu">برای ساخت آزمون، باید حداقل یک نمونه سوال داشته باشی.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal;return}
+  modal(`<h3>آزمون جدید</h3><input id="et" placeholder="عنوان آزمون"><input id="em" type="number" min="1" max="180" value="10" placeholder="مدت (دقیقه)"><p class="mu" style="margin:8px 0 0">سوال‌ها را انتخاب کن:</p>${[...S.q].sort((a,b)=>(a.ts||0)-(b.ts||0)).map(x=>`<label class="row" style="justify-content:flex-start;align-items:flex-start;margin:6px 0"><input type="checkbox" class="ck" value="${esc(x.id)}" checked><span>${esc(x.q)}</span></label>`).join("")}<div class="err" id="me"></div><div class="row"><button class="btn" id="ms" style="flex:1">ساخت آزمون</button><button class="btn g" id="mc">بستن</button></div>`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{
+    const t=$("et").value.trim(),m=Math.max(1,Math.min(180,+$("em").value||10)),ids=[...document.querySelectorAll(".ck:checked")].map(c=>c.value);
+    if(!t){$("me").textContent="عنوان را وارد کن.";return}
+    if(!ids.length){$("me").textContent="حداقل یک سوال انتخاب کن.";return}
+    const qs=S.q.filter(x=>ids.includes(x.id)).map(x=>({q:x.q,o:x.o,a:x.a}));
+    put("e",uidn(),{title:t,minutes:m,qs,ts:Date.now()});closeModal();
+  };
+};
+
+/* ---------- exam ---------- */
+let X={};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+function startExam(id){
+  const e=S.e.find(x=>x.id===id);if(!e||!(e.qs||[]).length)return;if(!e.live&&!unlocked)return;
+  if(!unlocked&&isBanned()){modal(`<h3>دسترسی مسدود است</h3><p class="mu">مدیر شرکت تو در آزمون‌ها را متوقف کرده است. برای پیگیری با مدیر تماس بگیر.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal;return}
+  markAtt(e);
+  X={e,qs:shuffle(e.qs),ans:[],cur:0,left:(e.minutes||10)*60};X.ans=X.qs.map(()=>-1);
+  $("ex-list-wrap").classList.add("hide");$("ex-res").classList.add("hide");$("ex-run").classList.remove("hide");
+  clearInterval(X.t);X.t=setInterval(()=>{X.left--;tick();if(X.left<=0)finish()},1000);tick();show();scrollTo({top:0,behavior:"smooth"});
+}
+function tick(){const m=Math.floor(X.left/60),s=X.left%60;$("tm").innerHTML=ic("clock")+` ${m}:${String(s).padStart(2,"0")}`}
+function show(){
+  const x=X.qs[X.cur];
+  $("prog").textContent=`سوال ${X.cur+1} از ${X.qs.length}`;
+  $("pb").style.width=(X.ans.filter(v=>v>=0).length/X.qs.length*100)+"%";
+  $("qbox").innerHTML=`<div class="card"><b>${esc(x.q)}</b>${x.o.map((o,j)=>`<button class="opt ${X.ans[X.cur]==j?"sel":""}" data-j="${j}">${L[j]}) ${esc(o)}</button>`).join("")}</div>`;
+  document.querySelectorAll("#qbox .opt").forEach(b=>b.onclick=()=>{X.ans[X.cur]=+b.dataset.j;show()});
+}
+$("prev").onclick=()=>{if(X.cur>0){X.cur--;show()}};
+$("next").onclick=()=>{if(X.cur<X.qs.length-1){X.cur++;show()}};
+$("fin").onclick=async()=>{if(await ask("آزمون را پایان می‌دهی؟"))finish()};
+function finish(){
+  clearInterval(X.t);let ok=0;X.qs.forEach((x,i)=>{if(X.ans[i]==x.a)ok++});
+  attempts.push({examId:X.e.id,title:X.e.title,score:ok,total:X.qs.length,dur:(X.e.minutes||10)*60-X.left,ts:Date.now()});attempts=attempts.slice(-10);ls.set("att",attempts);sync();
+  $("ex-run").classList.add("hide");$("ex-res").classList.remove("hide");
+  $("ex-res").innerHTML=`<div class="card hero"><h2>نمره: ${ok} از ${X.qs.length}</h2><p style="margin:4px 0 12px">درصد: ${Math.round(ok/X.qs.length*100)}٪</p><button class="btn g" id="back">بازگشت به آزمون‌ها</button></div>`+
+  X.qs.map((x,i)=>`<div class="card" style="animation-delay:${Math.min(i,10)*50}ms"><b>${i+1}. ${esc(x.q)}</b>${x.o.map((o,j)=>`<div class="opt ${j==x.a?"ok":(j==X.ans[i]?"no":"")}">${L[j]}) ${esc(o)}</div>`).join("")}${X.ans[i]==-1?'<div class="mu">بدون پاسخ</div>':""}</div>`).join("");
+  $("back").onclick=()=>{$("ex-res").classList.add("hide");$("ex-list-wrap").classList.remove("hide")};
+  scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- PIN + admin ---------- */
+$("hb").onclick=()=>{
+  if(!unlocked){$("pinm").classList.add("on");setTimeout(()=>$("pin").focus(),300);return}
+  drawer();
+};
+function drawer(f){const on=f===undefined?!$("dr").classList.contains("on"):f;$("dr").classList.toggle("on",on);$("hb").classList.toggle("x",on);$("hb").innerHTML=ic(on?"close":"menu");$("bk").classList.toggle("on",on);if(on){renderAdmin();setTimeout(()=>pillTo($("aseg"),$("aseg").querySelector(".on")),80)}}
+$("pc").onclick=()=>{$("pinm").classList.remove("on");$("pe").textContent="";$("pin").value=""};
+$("pb1").onclick=chk;$("pin").onkeydown=e=>{if(e.key==="Enter")chk()};
+function chk(){
+  if($("pin").value.trim().toLowerCase()===PIN){
+    unlocked=true;document.body.classList.add("adm");$("hb").classList.add("adm");$("pin").value="";$("pe").textContent="";$("pinm").classList.remove("on");
+    if(ready)subAdmin();drawer(true);draw();
+  }else{$("pe").textContent="رمز اشتباه است.";const b=$("pinbox");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake")}
+}
+$("lock").onclick=()=>{unlocked=false;document.body.classList.remove("adm");$("hb").classList.remove("adm");drawer(false)};
+$("bk").onclick=()=>drawer(false);
+addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)});
+$("aseg").onclick=e=>{const b=e.target.closest("button");if(!b)return;atab=b.dataset.t;[...$("aseg").querySelectorAll("button")].forEach(x=>x.classList.toggle("on",x===b));pillTo($("aseg"),b);renderAdmin()};
+const fd=t=>t?new Date(t).toLocaleString("fa-IR"):"";
+let aex=null;
+function renderAdmin(){
+  const n=$("anote"),l=$("alist");
+  if(!db)n.textContent="ذخیره‌ی مرکزی در دسترس نیست؛ فقط داده‌های همین دستگاه دیده می‌شود.";
+  else if(errs.v||errs.r)n.textContent="اجازه‌ی خواندن بعضی لیست‌ها را نداری.";else n.textContent="";
+  if(atab==="v"){
+    n.textContent+=` ثبت‌نام‌ها: ${S.v.length}`;
+    l.innerHTML=[...S.v].sort((a,b)=>(a.ts||0)-(b.ts||0)).map((v,i)=>{const nat=S.a.filter(x=>x.phone===v.phone).length;return `<div class="it"><div class="row"><b>${i+1}. ${esc(v.name)}</b><span style="display:flex;gap:6px">${banBtn(v.phone)}<button class="btn d" data-act="delv" data-id="${esc(v.id)}">${ic("trash")}</button></span></div><div class="mu">${ic("phone")} ${esc(v.phone)}</div><div class="mu">ثبت‌نام: ${esc(fd(v.ts))} · حضور در ${nat} آزمون ${banChip(v.phone)}</div></div>`}).join("")||'<p class="mu">موردی نیست.</p>';
+  }else if(atab==="r"){
+    n.textContent+=` شرکت‌کنندگان: ${S.r.length}`;
+    l.innerHTML=S.r.map(r=>{const v=S.v.find(x=>x.id===r.id)||{};const at=r.attempts||[];const pc=at.map(a=>a.total?Math.round(a.score/a.total*100):0);const best=pc.length?Math.max(...pc):0,avg=pc.length?Math.round(pc.reduce((x,y)=>x+y,0)/pc.length):0;return `<div class="it"><div class="row"><b>${esc(r.name)}</b><span style="display:flex;gap:6px">${banBtn(r.phone)}<button class="btn d" data-act="delr" data-id="${esc(r.id)}">${ic("trash")}</button></span></div><div class="mu">${ic("phone")} ${esc(r.phone)}${v.ts?` · ثبت‌نام: ${esc(fd(v.ts))}`:""} ${banChip(r.phone)}</div><div style="margin:6px 0"><span class="chip">${at.length} آزمون</span> <span class="chip">بهترین: ${best}٪</span> <span class="chip">میانگین: ${avg}٪</span></div>${at.slice().reverse().map((a,i)=>`<div class="mu">${esc(a.title||"آزمون")}: ${esc(a.score)} از ${esc(a.total)} (${pc[at.length-1-i]}٪)${a.dur?` · ${Math.max(1,Math.round(a.dur/60))} دقیقه`:""} · ${esc(fd(a.ts))}</div>`).join("")}</div>`}).join("")||'<p class="mu">موردی نیست.</p>';
+  }else if(atab==="a"){
+    const es=[...S.e].sort((a,b)=>(b.ts||0)-(a.ts||0));
+    if(!es.length){l.innerHTML='<p class="mu">هنوز آزمونی ساخته نشده.</p>';return}
+    if(!es.some(x=>x.id===aex))aex=es[0].id;
+    const at={};S.a.filter(x=>x.examId===aex).forEach(x=>{at[x.phone]=x});
+    const vs=[...S.v].sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""),"fa"));
+    const pr=vs.filter(v=>at[v.phone]).length;
+    n.textContent+=` حضور و غیاب · حاضر: ${pr} از ${vs.length} · غایب: ${vs.length-pr}`;
+    l.innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0">${es.map(x=>`<button class="chip ${x.id===aex?"live":""}" data-ae="${esc(x.id)}" style="border:0;cursor:pointer;font:inherit">${esc(x.title)}</button>`).join("")}</div>`+vs.map((v,i)=>{const a=at[v.phone];return `<div class="it"><div class="row"><b>${i+1}. ${esc(v.name)}</b>${a?'<span class="chip live">حاضر</span>':'<span class="chip" style="background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no)">غایب</span>'}</div><div class="mu">${ic("phone")} ${esc(v.phone)}${a?` · ورود: ${esc(fd(a.ts))}`:""}</div></div>`}).join("")||'<p class="mu">ثبت‌نامی نیست.</p>';
+  }else{
+    l.innerHTML=[["v","ثبت‌نام‌ها"],["r","نتایج"],["e","آزمون‌ها"],["q","سوال‌ها"],["a","حضور و غیاب"]].map(([k,t])=>`<div class="it row"><span>${t} (${S[k].length})</span><button class="btn d" data-clr="${k}">حذف همه</button></div>`).join("")+
+    `<div class="it row"><b>همه چیز</b><button class="btn d" data-clr="all">حذف کامل</button></div>`+
+    "";
+    const sd=$("seed");if(sd)sd.onclick=()=>{seedQ().forEach(x=>put("q",x.id,{q:x.q,o:x.o,a:x.a,ts:x.ts}));const e=seedE()[0];put("e",e.id,{title:e.title,minutes:e.minutes,qs:e.qs,ts:Date.now()})};
+  }
+}
+$("alist").onclick=async e=>{
+  const ae=e.target.closest("[data-ae]");if(ae){aex=ae.dataset.ae;renderAdmin();return}
+  const b=e.target.closest("[data-clr]");if(!b)return;const k=b.dataset.clr;
+  if(!await ask(k==="all"?"همه‌ی اطلاعات (ثبت‌نام‌ها، نتایج، آزمون‌ها و سوال‌ها) حذف شود؟":"همه‌ی موارد این بخش حذف شوند؟"))return;
+  if(k==="all"){for(const x of ["v","r","e","q","a"])await clearCol(x)}else await clearCol(k);
+};
+/* ---------- editors / upload ---------- */
+const blk=(x,i,keep)=>`<div class="qb"><div class="row">${keep?`<label class="chip"><input type="checkbox" class="kp" checked> سوال ${i+1}${x.guessed?" · پاسخ حدسی، بررسی کن":""}</label>`:`<span class="chip">سوال ${i+1}</span>`}</div><input class="qt" placeholder="متن سوال" value="${esc(x.q||"")}">${[0,1,2,3].map(j=>`<input class="qo" placeholder="گزینه ${L[j]}" value="${esc((x.o||[])[j]||"")}">`).join("")}<select class="qa">${L.map((l,j)=>`<option value="${j}" ${x.a===j?"selected":""}>پاسخ درست: ${l}</option>`).join("")}</select></div>`;
+const rd=root=>[...root.querySelectorAll(".qb")].map(b=>{const k=b.querySelector(".kp");return{keep:!k||k.checked,q:b.querySelector(".qt").value.trim(),o:[...b.querySelectorAll(".qo")].map(i=>i.value.trim()),a:+b.querySelector(".qa").value}}).filter(x=>x.keep&&x.q&&x.o.every(Boolean)).map(({q,o,a})=>({q,o,a}));
+const btns='<div class="row"><button class="btn" id="ms" style="flex:1">ذخیره</button><button class="btn g" id="mc">بستن</button></div>';
+$("addq").onclick=()=>{
+  modal(`<h3>سوال جدید</h3><div id="bx">${blk({},0,false)}</div><div class="err" id="me"></div>${btns}`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{const a=rd($("bx"));if(!a.length){$("me").textContent="سوال و هر چهار گزینه را پر کن.";return}put("q",uidn(),{...a[0],ts:Date.now()});closeModal()};
+};
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest("[data-act]");if(!b)return;const id=b.dataset.id;
+  if(b.dataset.act==="editq"){
+    const x=S.q.find(q=>q.id===id);if(!x)return;
+    modal(`<h3>ویرایش سوال</h3><div id="bx">${blk(x,0,false)}</div><div class="err" id="me"></div>${btns}`);
+    $("mc").onclick=closeModal;
+    $("ms").onclick=()=>{const a=rd($("bx"));if(!a.length){$("me").textContent="همه‌ی فیلدها را پر کن.";return}put("q",id,{...a[0],ts:x.ts||Date.now()});closeModal()};
+  }
+  if(b.dataset.act==="edite"){
+    const x=S.e.find(q=>q.id===id);if(!x)return;
+    modal(`<h3>ویرایش آزمون</h3><input id="et" value="${esc(x.title)}" placeholder="عنوان آزمون"><label class="mu">مدت آزمون (دقیقه)</label><input id="em" type="number" min="1" max="180" value="${esc(x.minutes||10)}"><div id="bx">${(x.qs||[]).map((q,i)=>blk(q,i,true)).join("")}</div><button class="btn g" id="addb">${ic("plus")} سوال خالی</button><div class="err" id="me"></div>${btns}`,true);
+    $("mc").onclick=closeModal;
+    $("addb").onclick=()=>{const bx=$("bx");bx.insertAdjacentHTML("beforeend",blk({},bx.children.length,true))};
+    $("ms").onclick=()=>{
+      const t=$("et").value.trim(),m=Math.max(1,Math.min(180,+$("em").value||10)),qs=rd($("bx"));
+      if(!t){$("me").textContent="عنوان را وارد کن.";return}
+      if(!qs.length){$("me").textContent="حداقل یک سوال کامل لازم است.";return}
+      put("e",id,{title:t,minutes:m,qs,ts:x.ts||Date.now(),live:!!x.live,liveAt:x.liveAt||0});closeModal();
+    };
+  }
+});
+/* upload from phone: image or PDF */
+async function loadPdfjs(){
+  if(window.pdfjsLib)return;
+  await new Promise((ok,no)=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+}
+async function readPdf(f,room){
+  await loadPdfjs();
+  const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,n=Math.min(pdf.numPages,30);
+  let text="",imgs=[];
+  for(let i=1;i<=n;i++){const pg=await pdf.getPage(i);const tc=await pg.getTextContent();text+=tc.items.map(t=>t.str).join(" ")+"\n"}
+  if(text.replace(/\s/g,"").length<30*n){
+    text="";
+    for(let i=1;i<=Math.min(n,room);i++){
+      const pg=await pdf.getPage(i),vp=pg.getViewport({scale:1.6}),c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;
+      await pg.render({canvasContext:c.getContext("2d"),viewport:vp}).promise;
+      imgs.push(await new Promise(r=>c.toBlob(r,"image/jpeg",.85)));
+    }
+  }
+  return{text,imgs};
+}
+const errMsg=c=>({not_granted:"اجازه‌ی استفاده از Claude داده نشد.",rate_limited:"تعداد درخواست‌ها زیاد است؛ کمی بعد دوباره امتحان کن.",images_unavailable:"ارسال عکس در این نمایش پشتیبانی نمی‌شود.",image_rejected:"یکی از تصاویر قابل خواندن نیست.",invalid_json:"خروجی قابل فهم نبود؛ دوباره امتحان کن.",sampling_disabled:"این قابلیت برای حساب تو فعال نیست.",refused:"محتوای فایل پردازش نشد.",empty:"سوالی در فایل پیدا نشد."}[c]||"خطایی رخ داد؛ دوباره امتحان کن.");
+let ctl=null;
+$("upq").onclick=$("upe").onclick=()=>{$("fi").value="";$("fi").click()};
+$("fi").onchange=()=>{const fs=[...$("fi").files];if(fs.length)extract(fs)};
+function fail(code){modal(`<h3>انجام نشد</h3><p class="mu">${esc(errMsg(code))}</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal}
+async function extract(files){
+  let sample=null;try{sample=await claude.use("sample")}catch(e){}
+  if(!sample){modal(`<h3>در دسترس نیست</h3><p class="mu">خواندن خودکار فایل در این نسخه فعال نیست؛ سوال‌ها را با دکمه‌ی «سوال جدید» اضافه کن.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal;return}
+  ctl=new AbortController();
+  modal(`<h3>در حال خواندن فایل…</h3><p class="mu">لطفاً صبر کن؛ ممکن است تا یک دقیقه طول بکشد.</p><button class="btn g" id="mc">لغو</button>`);
+  $("mc").onclick=()=>{ctl.abort();closeModal()};
+  try{
+    const lim=await sample.limits().catch(()=>null),mx=lim?.images?.maxCount||0;
+    let text="",imgs=[];
+    for(const f of files){
+      if(f.type==="application/pdf"||/\.pdf$/i.test(f.name)){const r=await readPdf(f,Math.max(0,mx-imgs.length));text+=r.text+"\n";imgs.push(...r.imgs)}
+      else if(f.type.startsWith("image/"))imgs.push(f);
+    }
+    if(imgs.length&&!mx)throw{code:"images_unavailable"};
+    imgs=imgs.slice(0,mx);
+    if(!text.trim()&&!imgs.length)throw{code:"empty"};
+    const prompt="محتوای زیر (متن یا تصویر) نمونه سوال‌های چهارگزینه‌ای درس جامعه‌شناسی است. اگر تصویر است، متن فارسی آن را با دقت بخوان. همه‌ی سوال‌های چهارگزینه‌ای را استخراج کن و چیزی از خودت به متن سوال‌ها و گزینه‌ها اضافه یا کم نکن. سوال‌هایی که دقیقاً چهار گزینه ندارند را نادیده بگیر. اگر پاسخنامه در فایل هست از آن استفاده کن؛ اگر نیست، بهترین پاسخ را خودت انتخاب کن و guessed را true بگذار. خروجی فقط یک JSON به این شکل باشد: {\"questions\":[{\"q\":\"متن سوال\",\"o\":[\"گزینه ۱\",\"گزینه ۲\",\"گزینه ۳\",\"گزینه ۴\"],\"a\":0,\"guessed\":false}]} که a شماره‌ی گزینه‌ی درست از ۰ تا ۳ است."+(text.trim()?"\n\nمتن استخراج‌شده از فایل:\n"+text.slice(0,120000):"");
+    const data=await sample.json(prompt,{images:imgs.length?imgs:undefined,signal:ctl.signal,cache:false});
+    const arr=(Array.isArray(data)?data:data&&data.questions)||[];
+    const items=arr.map(x=>({q:String(x.q||"").trim(),o:(x.o||[]).slice(0,4).map(s=>String(s).trim()),a:Number.isInteger(x.a)&&x.a>=0&&x.a<4?x.a:0,guessed:x.guessed===true||!Number.isInteger(x.a)})).filter(x=>x.q&&x.o.length===4&&x.o.every(Boolean));
+    if(!items.length)throw{code:"empty"};
+    review(items);
+  }catch(e){if(e&&e.code==="cancelled")return;fail(e&&e.code)}
+}
+function review(items){
+  modal(`<h3>${items.length} سوال پیدا شد</h3><p class="mu">پاسخ‌ها را بررسی و در صورت نیاز ویرایش کن. با برداشتن تیک، آن سوال اضافه نمی‌شود.</p><div id="bx">${items.map((x,i)=>blk(x,i,true)).join("")}</div><input id="ut" placeholder="عنوان آزمون (برای ساخت آزمون)"><label class="mu">مدت آزمون (دقیقه)</label><input id="um" type="number" min="1" max="180" value="10"><div class="err" id="me"></div><div class="row"><button class="btn" id="u1">افزودن به سوالات</button><button class="btn" id="u2">ساخت آزمون</button><button class="btn" id="u3">هر دو</button><button class="btn g" id="mc">بستن</button></div>`,true);
+  $("mc").onclick=closeModal;
+  const run=(addQ,addE)=>{
+    const qs=rd($("bx"));if(!qs.length){$("me").textContent="حداقل یک سوال کامل لازم است.";return}
+    const t=$("ut").value.trim();if(addE&&!t){$("me").textContent="برای ساخت آزمون، عنوان را وارد کن.";return}
+    if(addQ)qs.forEach((x,i)=>put("q",uidn(),{...x,ts:Date.now()+i}));
+    if(addE)put("e",uidn(),{title:t,minutes:Math.max(1,Math.min(180,+$("um").value||10)),qs,ts:Date.now()});
+    closeModal();go(addE?"e":"q");
+  };
+  $("u1").onclick=()=>run(true,false);$("u2").onclick=()=>run(false,true);$("u3").onclick=()=>run(true,true);
+}
+/* ---------- mandatory registration gate ---------- */
+const NAMEOK=/^[\u0600-\u06FFa-zA-Z\u200c ]{2,}$/,PHONEOK=/^09\d{9}$/;
+const validMe=m=>!!(m&&m.fn&&m.ln&&PHONEOK.test(m.phone||""));
+function lockUI(on){[document.querySelector(".w"),$("dock"),$("hb"),$("th")].forEach(el=>{if(el)el.inert=on});$("gate").classList.toggle("on",on)}
+lockUI(!validMe(me));
+if(me&&!validMe(me)){const parts=(me.name||"").split(" ");$("gf").value=me.fn||parts[0]||"";$("gl").value=me.ln||parts.slice(1).join(" ");$("gp").value=PHONEOK.test(me.phone||"")?me.phone:""}
+$("gp").oninput=()=>{const v=fa2en($("gp").value).replace(/\D/g,"").slice(0,11);$("gp").value=v;$("gc").textContent=v.length+" از 11 رقم"};
+$("gb").onclick=async()=>{
+  const fn=$("gf").value.trim().replace(/\s+/g," "),ln=$("gl").value.trim().replace(/\s+/g," "),p=fa2en($("gp").value).replace(/\D/g,""),er=$("ge");
+  if(!NAMEOK.test(fn)){er.textContent="نام را درست وارد کن (فقط حروف).";return}
+  if(!NAMEOK.test(ln)){er.textContent="نام خانوادگی را درست وارد کن (فقط حروف).";return}
+  if(!PHONEOK.test(p)){er.textContent="شماره تماس باید دقیقاً 11 رقم باشد و با 09 شروع شود.";return}
+  if(!ready){er.textContent="چند ثانیه صبر کن و دوباره بزن.";return}
+  if(!db){er.textContent="ثبت‌نام فقط با باز کردن لینک اصلی سایت و ورود به حساب Claude ممکن است.";return}
+  const m={fn,ln,name:fn+" "+ln,phone:p,ts:(me&&me.ts)||Date.now()};
+  $("gb").disabled=true;er.textContent="";
+  try{await db.collection(COL.v).doc(uid).set({fn,ln,name:m.name,phone:p,ts:m.ts})}
+  catch(e){er.textContent="ثبت انجام نشد؛ دوباره امتحان کن ("+((e&&e.code)||"خطا")+").";$("gb").disabled=false;return}
+  me=m;ls.set("me",me);$("gb").disabled=false;lockUI(false);setH();sync();draw();
+};
+/* ---------- live exam: green ball + toast ---------- */
+const toast=m=>{const t=$("toast");t.innerHTML=ic("bell")+" "+esc(m);t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),6000)};
+function liveFx(){
+  if(!loaded.e)return;
+  const any=S.e.some(x=>x.live);$("ball").classList.toggle("on",any);
+  if(prevLive===false&&any&&!unlocked)toast("آزمون شروع شد! به تب آزمون‌ها برو.");
+  prevLive=any;
+}
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest('[data-act="live"]');if(!b)return;
+  const x=S.e.find(q=>q.id===b.dataset.id);if(!x)return;
+  put("e",x.id,{title:x.title,minutes:x.minutes,qs:x.qs,ts:x.ts||Date.now(),live:!x.live,liveAt:Date.now()});
+});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>pillTo($("dock"),dockBtns.find(b=>b.classList.contains("on"))));
+</script>
+</body>
+</html>
