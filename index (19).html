@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جامعه‌شناسی ۱ – پایه دهم</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f4f6fb;--sf:#fff;--tx:#0f172a;--mu:#64748b;--pr:#4f46e5;--pr2:#06b6d4;--ok:#16a34a;--no:#e11d48;--bd:#e4e7f1;--sh:0 10px 30px rgba(15,23,42,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e1a;--sf:#141829;--tx:#eef1fb;--mu:#8d97b5;--pr:#7c83ff;--pr2:#22d3ee;--ok:#4ade80;--no:#fb7185;--bd:#262c44;--sh:0 10px 30px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#0b0e1a;--sf:#141829;--tx:#eef1fb;--mu:#8d97b5;--pr:#7c83ff;--pr2:#22d3ee;--ok:#4ade80;--no:#fb7185;--bd:#262c44;--sh:0 10px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,system-ui,sans-serif;line-height:1.9;min-height:100vh;overflow-x:hidden;transition:background .5s,color .5s}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px 400px at 85% -5%,color-mix(in srgb,var(--pr) 28%,transparent),transparent),radial-gradient(500px 380px at 5% 105%,color-mix(in srgb,var(--pr2) 26%,transparent),transparent);animation:aur 16s ease-in-out infinite alternate}
+@keyframes aur{to{transform:scale(1.12) translate(-14px,10px)}}
+.w{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:78px 16px 130px}
+.pg{display:none}.pg.on{display:block;animation:pgi .55s cubic-bezier(.2,.9,.3,1) both}
+@keyframes pgi{from{opacity:0;transform:translateY(24px)}}
+h1,h2,h3{margin:0}
+.mu{color:var(--mu)}.hide{display:none!important}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:18px;box-shadow:var(--sh);animation:up .6s cubic-bezier(.2,.9,.3,1) both;margin:12px 0}
+@keyframes up{from{opacity:0;transform:translateY(20px) scale(.97)}}
+.btn{font:inherit;font-weight:600;border:0;border-radius:16px;padding:10px 20px;cursor:pointer;color:#fff;background:linear-gradient(120deg,var(--pr),var(--pr2));transition:transform .3s cubic-bezier(.34,1.6,.5,1),filter .3s;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.08)}.btn:active{transform:scale(.95)}
+.btn.g{background:var(--bg);color:var(--tx);border:1px solid var(--bd)}
+.btn.d{background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no);padding:6px 12px;font-size:.85rem}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.top{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:45;width:46px;height:46px;border-radius:16px;border:1px solid var(--bd);background:var(--sf);box-shadow:var(--sh);cursor:pointer;display:grid;place-content:center;font-size:1.25rem;color:var(--tx);transition:transform .35s cubic-bezier(.34,1.6,.5,1)}
+.top:hover{transform:scale(1.1) rotate(-6deg)}
+#hb{left:14px;gap:5px}#th{right:14px}
+#hb i{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--tx);transition:transform .4s,opacity .3s}
+#hb.x i:nth-child(1){transform:translateY(7.5px) rotate(45deg)}#hb.x i:nth-child(2){opacity:0}#hb.x i:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+#hb.adm::after{content:"";position:absolute;top:6px;right:6px;width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--sf)}
+/* home */
+.hero{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border:0;position:relative;overflow:hidden;padding:26px 22px}
+.hero::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.16);left:-60px;bottom:-90px;animation:fl 9s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translate(40px,-30px) scale(1.2)}}
+.hero h1{font-size:1.6rem;font-weight:800}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:16px;box-shadow:var(--sh);cursor:pointer;text-align:right;font:inherit;color:var(--tx);animation:up .6s both;transition:transform .35s cubic-bezier(.34,1.6,.5,1)}
+.tile:hover{transform:translateY(-4px)}.tile:active{transform:scale(.97)}
+.tile b.n{display:block;font-size:2rem;font-weight:800;background:linear-gradient(120deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.3}
+.tile .ic{font-size:1.6rem}
+/* dock */
+.dock{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:min(420px,calc(100% - 28px));background:color-mix(in srgb,var(--sf) 88%,transparent);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:26px;box-shadow:0 14px 40px rgba(15,23,42,.22);display:flex;padding:6px}
+.dock button{flex:1;font:inherit;font-size:.82rem;font-weight:600;color:var(--mu);background:none;border:0;padding:8px 4px;border-radius:20px;cursor:pointer;position:relative;z-index:1;display:grid;place-items:center;line-height:1.4;transition:color .3s}
+.dock button span{font-size:1.25rem;transition:transform .4s cubic-bezier(.34,1.8,.5,1)}
+.dock button.on{color:#fff}.dock button.on span{transform:translateY(-2px) scale(1.18)}
+.pill{position:absolute;top:6px;bottom:6px;border-radius:20px;background:linear-gradient(120deg,var(--pr),var(--pr2));transition:left .5s cubic-bezier(.34,1.35,.5,1),width .5s cubic-bezier(.34,1.35,.5,1)}
+/* options */
+.opt{display:block;width:100%;text-align:right;font:inherit;color:var(--tx);background:transparent;border:1.5px solid var(--bd);border-radius:16px;padding:10px 14px;margin:8px 0;cursor:pointer;transition:all .35s cubic-bezier(.2,.9,.3,1)}
+.opt:hover{transform:translateX(-4px);border-color:var(--pr)}
+.opt.sel{border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,transparent);transform:translateX(-7px)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}.opt.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 16%,transparent)}
+.ans{max-height:0;overflow:hidden;opacity:0;color:var(--ok);font-weight:600;transition:max-height .5s,opacity .5s,margin .5s}.ans.show{max-height:90px;opacity:1;margin-top:10px}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pr),var(--pr2));border-radius:8px;transition:width .6s cubic-bezier(.2,.9,.3,1)}
+.tm{font-weight:800;color:var(--pr)}
+.ao{display:none!important}body.adm .ao{display:inline-flex!important}body.adm div.ao{display:flex!important}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.8rem;background:color-mix(in srgb,var(--pr) 14%,transparent);color:var(--pr)}
+/* modals */
+.mask{position:fixed;inset:0;z-index:50;background:rgba(8,10,25,.55);backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .35s;display:grid;place-items:center;padding:16px;overflow-y:auto}
+.mask.on{opacity:1;pointer-events:auto}
+.modal{width:100%;max-width:400px;max-height:92vh;overflow-y:auto;background:var(--sf);border:1px solid var(--bd);border-radius:28px;padding:22px;box-shadow:var(--sh);transform:scale(.8) translateY(34px);opacity:0;transition:transform .55s cubic-bezier(.34,1.5,.5,1),opacity .3s}
+.mask.on .modal{transform:none;opacity:1}.modal.shake{animation:sh .45s}
+@keyframes sh{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+input,select{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:14px;padding:9px 13px;margin:5px 0;outline:0;transition:border-color .3s,box-shadow .3s}
+input:focus,select:focus{border-color:var(--pr);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr) 20%,transparent)}
+input[type=checkbox]{width:auto;margin:0 0 0 8px}
+.err{color:var(--no);min-height:1.6em;font-size:.9rem}
+.dr{position:fixed;top:0;bottom:0;left:0;width:min(430px,94vw);z-index:35;background:var(--bg);border-right:1px solid var(--bd);box-shadow:var(--sh);transform:translateX(-105%);transition:transform .6s cubic-bezier(.2,.9,.3,1);padding:74px 14px 24px;overflow-y:auto}
+.dr.on{transform:none}
+.seg{display:flex;background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:5px;position:relative}
+.seg button{flex:1;font:inherit;font-weight:600;color:var(--mu);background:none;border:0;padding:7px 4px;border-radius:12px;cursor:pointer;position:relative;z-index:1;transition:color .3s}
+.seg button.on{color:#fff}.seg .pill{top:5px;bottom:5px;border-radius:12px}
+.it{padding:10px 12px;border:1px solid var(--bd);border-radius:16px;margin:8px 0;background:var(--sf);animation:up .5s both}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.2em}
+.top .ic{width:22px;height:22px}.dock .ic{width:22px;height:22px}
+.tm{display:inline-flex;align-items:center;gap:4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.tile b.n{font-size:1.5rem;line-height:1.2}
+.ib{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(120deg,var(--pr),var(--pr2));flex:none}
+.ib .ic{width:22px;height:22px}
+.bk{position:fixed;inset:0;z-index:34;background:rgba(8,10,25,.45);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .5s}.bk.on{opacity:1;pointer-events:auto}
+.modal.wide{max-width:620px}.qb{border:1px solid var(--bd);border-radius:18px;padding:10px;margin:10px 0}.qb input.qt{font-weight:600}.qb .chip input{margin:0 0 0 6px;vertical-align:middle}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none!important;filter:none!important}
+.chip.live{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.ball{display:none;position:absolute;top:4px;left:calc(50% + 8px);width:13px;height:13px;border-radius:50%;background:#22c55e;border:2px solid var(--sf);animation:pl 1.4s infinite,bn 1s ease-in-out infinite alternate}
+.ball.on{display:block}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(34,197,94,.75)}70%,100%{box-shadow:0 0 0 13px rgba(34,197,94,0)}}
+@keyframes bn{to{transform:translateY(-4px)}}
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 70px);transform:translate(-50%,-24px);z-index:60;background:var(--sf);border:1.5px solid var(--ok);color:var(--tx);padding:10px 18px;border-radius:18px;box-shadow:var(--sh);opacity:0;pointer-events:none;transition:all .55s cubic-bezier(.34,1.5,.5,1);display:flex;gap:8px;align-items:center;width:max-content;max-width:92vw}
+.toast.on{opacity:1;transform:translate(-50%,0)}.toast .ic{color:var(--ok)}
+@media (prefers-reduced-motion:reduce){body::before,.hero::after{animation:none!important}}
+/* premium compact capsule dock */
+.dock{width:min(330px,calc(100% - 44px));bottom:calc(env(safe-area-inset-bottom,0px) + 26px);padding:4px;border-radius:999px;background:color-mix(in srgb,var(--sf) 72%,transparent);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border:1px solid color-mix(in srgb,#fff 14%,var(--bd));box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12)}
+.dock button{font-size:.68rem;padding:6px 2px;border-radius:999px;line-height:1.25}
+.dock button span{font-size:1rem}
+.dock .ic{width:18px;height:18px}
+.dock .pill{top:4px;bottom:4px;border-radius:999px;box-shadow:0 4px 14px color-mix(in srgb,var(--pr) 45%,transparent)}
+
+/* ===== v2: dock, compact cards, distinct animations ===== */
+.w{padding-bottom:170px}
+.dock{width:min(350px,calc(100% - 40px));bottom:calc(env(safe-area-inset-bottom,0px) + 48px);padding:5px;border-radius:32px;background:color-mix(in srgb,var(--sf) 60%,transparent);backdrop-filter:blur(26px) saturate(1.8);-webkit-backdrop-filter:blur(26px) saturate(1.8);border:0;box-shadow:0 20px 40px -10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+.dock::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.2px;background:linear-gradient(135deg,color-mix(in srgb,var(--pr) 75%,#fff),transparent 42%,color-mix(in srgb,var(--pr2) 75%,#fff));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.dock button{font-size:.7rem;padding:7px 2px 6px;border-radius:26px;line-height:1.3}
+.dock .pill{top:5px;bottom:5px;border-radius:26px;box-shadow:0 8px 20px -4px color-mix(in srgb,var(--pr) 65%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}
+.dock button[data-go=home].on .ic{animation:icHome .6s}.dock button[data-go=q].on .ic{animation:icBook .6s}.dock button[data-go=e].on .ic{animation:icExam .7s}
+@keyframes icHome{40%{transform:translateY(-6px)}70%{transform:translateY(1px)}}
+@keyframes icBook{from{transform:rotateY(180deg)}}
+@keyframes icExam{20%{transform:rotate(-14deg)}50%{transform:rotate(12deg)}80%{transform:rotate(-5deg)}}
+/* pages: each its own entrance */
+.pg.on{animation:none}
+#pg-home.on{animation:pgHome .6s cubic-bezier(.2,.9,.3,1) both}#pg-q.on{animation:pgQ .5s cubic-bezier(.2,.9,.3,1) both}#pg-e.on{animation:pgE .55s cubic-bezier(.2,.9,.3,1) both}
+@keyframes pgHome{from{opacity:0;transform:scale(.95)}}@keyframes pgQ{from{opacity:0;transform:translateX(40px)}}@keyframes pgE{from{opacity:0;transform:translateY(30px);filter:blur(6px)}}
+#pg-home h1{animation:drop .6s cubic-bezier(.34,1.5,.5,1) both}@keyframes drop{from{opacity:0;transform:translateY(-22px)}}
+.tile{animation:tilePop .7s cubic-bezier(.34,1.5,.5,1) both}@keyframes tilePop{from{opacity:0;transform:scale(.6) rotate(-6deg)}}
+.card{animation:none}
+.card.ex{transform-origin:top;animation:examFlip .6s cubic-bezier(.2,.9,.3,1) both;animation-delay:calc(var(--i,0)*70ms)}@keyframes examFlip{from{opacity:0;transform:perspective(600px) rotateX(-28deg)}}
+.card.hero{animation:scoreIn .8s cubic-bezier(.34,1.6,.5,1) both}@keyframes scoreIn{from{opacity:0;transform:scale(.5)}}
+.card.rv2{animation:revRise .45s both;animation-delay:calc(var(--i,0)*50ms)}.card.qrun{animation:revRise .4s both}@keyframes revRise{from{opacity:0;transform:translateY(12px)}}
+.card.qrun.nx{animation:swN .4s cubic-bezier(.2,.9,.3,1) both}.card.qrun.pv{animation:swP .4s cubic-bezier(.2,.9,.3,1) both}
+@keyframes swN{from{opacity:0;transform:translateX(-40px)}}@keyframes swP{from{opacity:0;transform:translateX(40px)}}
+.qrun .opt{animation:optIn .35s both;animation-delay:calc(var(--i,0)*60ms + 80ms)}@keyframes optIn{from{opacity:0;transform:translateY(8px)}}
+.opt.sel{animation:selPop .35s}@keyframes selPop{50%{transform:translateX(-7px) scale(1.03)}}
+.opt.no{animation:noShake .4s}@keyframes noShake{25%{transform:translateX(5px)}75%{transform:translateX(-5px)}}
+.opt.ok{animation:okPulse .7s}
+@keyframes okPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.it{animation:itemSlide .45s cubic-bezier(.2,.9,.3,1) both}@keyframes itemSlide{from{opacity:0;transform:translateX(-26px)}}
+.mask.on .modal.ask{animation:askDrop .45s cubic-bezier(.34,1.6,.5,1) both}@keyframes askDrop{from{opacity:0;transform:translateY(-50px) scale(.9)}}
+.mask.on .modal.wide{animation:sheetUp .5s cubic-bezier(.2,.9,.3,1) both}@keyframes sheetUp{from{opacity:0;transform:translateY(80px)}}
+#th .ic{animation:spinIn .55s}@keyframes spinIn{from{transform:rotate(-200deg) scale(.3);opacity:0}}
+#hb .ic{animation:rotIn .4s}@keyframes rotIn{from{transform:rotate(90deg) scale(.4);opacity:0}}
+.btn:not(.g):not(.d){position:relative;overflow:hidden}
+.btn:not(.g):not(.d)::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg)}
+.btn:not(.g):not(.d):hover::after{animation:shine .7s}@keyframes shine{to{left:130%}}
+.bar i{background-size:200% 100%;animation:shim 2s linear infinite}@keyframes shim{to{background-position:-200% 0}}
+/* compact question cards */
+.qc{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:10px 12px;margin:8px 0;box-shadow:0 4px 14px rgba(15,23,42,.05);animation:qSlide .5s cubic-bezier(.2,.9,.3,1) both;animation-delay:calc(var(--i,0)*45ms);width:fit-content;min-width:min(100%,260px);max-width:100%}
+@keyframes qSlide{from{opacity:0;transform:translateX(34px)}}
+.qh{display:flex;gap:8px;align-items:flex-start}
+.qn{flex:none;min-width:24px;height:24px;border-radius:8px;display:grid;place-items:center;font-size:.78rem;font-weight:800;color:#fff;background:linear-gradient(120deg,var(--pr),var(--pr2))}
+.qx{font-weight:600;font-size:.93rem;line-height:1.7}
+.qop{display:grid;gap:5px;margin-top:8px}.qop.two{grid-template-columns:1fr 1fr}.qop.four{grid-template-columns:repeat(4,1fr)}
+.qc .qop>div{display:flex;gap:6px;align-items:center;padding:4px 9px;border-radius:11px;background:var(--bg);border:1px solid var(--bd);font-size:.85rem;line-height:1.5;animation:optIn .4s both;animation-delay:calc(var(--i,0)*45ms + var(--j,0)*60ms + 150ms)}
+.qop.four>div{justify-content:center}.qc .qop i{font-style:normal;font-weight:700;color:var(--pr);flex:none}
+.qc.rv .qop>div{opacity:.5}.qc.rv .qop>div.c{opacity:1;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent);animation:okPulse .7s}
+.qc.rv .qop>div.c::after{content:"✓";margin-inline-start:auto;color:var(--ok);font-weight:800;animation:ckPop .5s}@keyframes ckPop{from{transform:scale(0) rotate(-90deg)}}
+.qf{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.btn.s{padding:3px 11px;font-size:.78rem;border-radius:11px}
+.qimg{display:block;width:100%;height:auto;border-radius:12px;margin:8px 0 0;border:1px solid var(--bd);background:#fff;cursor:zoom-in}
+.qrun .qimg{margin:0 0 8px}.qb .qimg{max-height:240px;object-fit:contain}
+.four .opt{margin:6px 0 0;text-align:center;padding:10px 4px}
+.ab{font:inherit;font-weight:700;width:38px;height:34px;border-radius:12px;border:1.5px solid var(--bd);background:var(--bg);color:var(--tx);cursor:pointer;transition:transform .3s cubic-bezier(.34,1.8,.5,1)}
+.ab.on{background:linear-gradient(120deg,var(--pr),var(--pr2));color:#fff;border-color:transparent;transform:scale(1.12)}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.88);display:none;overflow:auto;padding:16px;text-align:center}.lb.on{display:block;animation:lbIn .35s}
+@keyframes lbIn{from{opacity:0;transform:scale(1.08)}}.lb img{max-width:100%;border-radius:10px;background:#fff;cursor:zoom-in}.lb img.z{max-width:none;width:220%;cursor:zoom-out}
+.seg button{font-size:.74rem;padding:7px 1px}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}.sg div{text-align:center;padding:8px 4px;border-radius:14px;background:var(--sf);border:1px solid var(--bd);animation:tilePop .5s both}.sg b{display:block;font-size:1.2rem;color:var(--pr)}
+.rk{animation:rankIn .5s cubic-bezier(.2,.9,.3,1) both;animation-delay:calc(var(--i,0)*60ms)}@keyframes rankIn{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.sb{height:6px;border-radius:6px;background:var(--bd);margin-top:6px;overflow:hidden}.sb i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--pr),var(--pr2));animation:barGrow 1s .2s cubic-bezier(.2,.9,.3,1) forwards}@keyframes barGrow{to{width:var(--w)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+body::before,.hero::after,.bar i{animation:none}
+.dock{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mask,.bk{backdrop-filter:none;-webkit-backdrop-filter:none}
+.btn:not(.g):not(.d)::after{display:none}.qc .qop>div{animation:none}.qc{animation-delay:calc(var(--i,0)*22ms)}.qimg{content-visibility:auto}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v14H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h14v-4"/></symbol>
+<symbol id="i-exam" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 14l2 2 4-4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6M10 19a2 2 0 0 0 4 0"/></symbol>
+</defs></svg>
+<button class="top" id="hb" aria-label="منو"><svg class="ic"><use href="#i-menu"/></svg></button>
+<button class="top" id="th" aria-label="تم"></button>
+
+<div class="w">
+  <section class="pg on" id="pg-home">
+    <div style="margin-bottom:14px"><h1 style="font-size:1.45rem;font-weight:800">جامعه‌شناسی ۱</h1><div class="mu">پایه دهم علوم انسانی</div></div>
+    <div class="grid">
+      <button class="tile" data-go="q" style="animation-delay:.1s"><span class="ib"><svg class="ic"><use href="#i-book"/></svg></span><span><b class="n" id="nq">0</b><span class="mu">نمونه سوال</span></span></button>
+      <button class="tile" data-go="e" style="animation-delay:.2s"><span class="ib"><svg class="ic"><use href="#i-exam"/></svg></span><span><b class="n" id="ne">0</b><span class="mu">آزمون</span></span></button>
+    </div>
+    <p class="mu" style="margin:14px 2px;font-size:.9rem">برای شروع از نوار پایین استفاده کن.</p>
+  </section>
+
+  <section class="pg" id="pg-q">
+    <div class="row"><h2>نمونه سوالات</h2><div class="row" style="gap:6px"><button class="btn g ao" id="upq"><svg class="ic"><use href="#i-upload"/></svg> آپلود فایل</button><button class="btn ao" id="addq"><svg class="ic"><use href="#i-plus"/></svg> افزودن سوال</button></div></div>
+    <div id="qlist"></div>
+  </section>
+
+  <section class="pg" id="pg-e">
+    <div id="ex-list-wrap">
+      <div class="row"><h2>آزمون‌ها</h2><div class="row" style="gap:6px"><button class="btn g ao" id="upe"><svg class="ic"><use href="#i-upload"/></svg> ساخت از فایل</button><button class="btn ao" id="adde"><svg class="ic"><use href="#i-plus"/></svg> ساخت آزمون</button></div></div>
+      <div id="elist"></div>
+    </div>
+    <div id="ex-run" class="hide">
+      <div class="card"><div class="row"><b id="prog"></b><span class="tm" id="tm"></span></div><div class="bar"><i id="pb"></i></div></div>
+      <div id="qbox"></div>
+      <div class="row"><button class="btn g" id="prev">قبلی</button><button class="btn g" id="next">بعدی</button><button class="btn" id="fin">پایان آزمون</button></div>
+    </div>
+    <div id="ex-res" class="hide"></div>
+  </section>
+</div>
+
+<nav class="dock" id="dock"><span class="pill"></span>
+  <button data-go="home" class="on"><span><svg class="ic"><use href="#i-home"/></svg></span>خانه</button>
+  <button data-go="q"><span><svg class="ic"><use href="#i-book"/></svg></span>نمونه سوالات</button>
+  <button data-go="e"><i class="ball" id="ball"></i><span><svg class="ic"><use href="#i-exam"/></svg></span>آزمون‌ها</button>
+</nav>
+
+<div class="bk" id="bk"></div>
+<aside class="dr" id="dr">
+  <div class="row" style="margin-bottom:10px"><h3>پنل مدیریت</h3><button class="btn g" id="lock"><svg class="ic"><use href="#i-lock"/></svg> خروج مدیر</button></div>
+  <div class="seg" id="aseg"><span class="pill"></span><button class="on" data-t="v">ثبت‌نام‌ها</button><button data-t="r">نتایج</button><button data-t="a">حضور</button><button data-t="s">آمار</button><button data-t="t">ابزار</button><button data-t="c">پاکسازی</button></div>
+  <p class="mu" id="anote"></p><input id="asr" class="hide" placeholder="جستجوی نام یا شماره…"><div id="alist"></div>
+</aside>
+
+<div class="mask on" id="gate"><div class="modal">
+  <h2>ثبت‌نام</h2><p class="mu">برای ورود، نام، نام خانوادگی و شماره تماس را وارد کن. ورود بدون ثبت‌نام ممکن نیست.</p>
+  <input id="gf" placeholder="نام" autocomplete="given-name"><input id="gl" placeholder="نام خانوادگی" autocomplete="family-name">
+  <input id="gp" placeholder="شماره تماس (11 رقم، مثل 09123456789)" inputmode="numeric" maxlength="11" autocomplete="tel"><div class="mu" id="gc" style="font-size:.85rem">0 از 11 رقم</div>
+  <div class="err" id="ge"></div><button class="btn" id="gb" style="width:100%">ورود به سایت</button>
+</div></div>
+<div class="mask" id="pinm"><div class="modal" id="pinbox">
+  <h3><svg class="ic"><use href="#i-lock"/></svg> ورود مدیر</h3><p class="mu">رمز عبور را وارد کن.</p>
+  <input id="pin" type="password" placeholder="رمز عبور" autocomplete="off"><div class="err" id="pe"></div>
+  <div class="row"><button class="btn" id="pb1" style="flex:1">ورود</button><button class="btn g" id="pc">بستن</button></div>
+</div></div>
+<div class="mask" id="gm"><div class="modal" id="gmb"></div></div>
+<input type="file" id="fi" accept="image/*,application/pdf" multiple class="hide">
+<div class="toast" id="toast"></div>
+<div class="lb" id="lb"></div>
+
+<script>
+/* Netlify adapter: replaces Claude's shared db with /api/db (same API surface) */
+(function(){
+  if(window.claude&&window.claude.use)return;
+  var pin="";
+  document.addEventListener("input",function(e){if(e.target&&e.target.id==="pin")pin=e.target.value.trim().toLowerCase()},true);
+  function api(method,body,qs){
+    return fetch("/api/db"+(qs||""),{method:method,headers:{"content-type":"application/json","x-pin":pin},body:body?JSON.stringify(body):undefined,cache:"no-store"})
+      .then(function(r){if(!r.ok){var e=new Error("http");e.code=r.status;throw e}return r.json()});
+  }
+  var subs=[];
+  function poll(col){
+    var ss=subs.filter(function(s){return s.col===col});
+    if(!ss.length)return Promise.resolve();
+    return api("GET",null,"?col="+col).then(function(r){
+      var str=JSON.stringify(r.docs);
+      ss.forEach(function(s){
+        if(s.last===str&&!s.failed)return;
+        s.last=str;s.failed=false;
+        s.ok({docs:r.docs.map(function(d){return{id:d.id,data:function(){return d.data}}})});
+      });
+    }).catch(function(){ss.forEach(function(s){if(!s.failed){s.failed=true;if(s.err)s.err()}})});
+  }
+  function collection(col){return{
+    doc:function(id){return{
+      set:function(data){return api("POST",{col:col,id:id,data:data}).then(function(){poll(col)})},
+      delete:function(){return api("DELETE",{col:col,id:id}).then(function(){poll(col)})}
+    }},
+    onSnapshot:function(ok,err){var s={col:col,ok:ok,err:err,last:null,failed:false};subs.push(s);poll(col);return function(){subs=subs.filter(function(x){return x!==s})}}
+  }}
+  var every={questions:30000,exams:8000,bans:20000},due={};document.addEventListener("visibilitychange",function(){if(!document.hidden)due={}});setInterval(function(){if(document.hidden)return;var now=Date.now(),seen={};subs.forEach(function(s){if(seen[s.col])return;seen[s.col]=1;if((due[s.col]||0)<=now){due[s.col]=now+(every[s.col]||10000);poll(s.col)}})},2000);
+  window.claude={use:function(n){return n==="db"?Promise.resolve({collection:collection}):Promise.reject(new Error("unavailable"))}};
+})();
+</script>
+<script>
+const $=id=>document.getElementById(id),L=["الف","ب","ج","د"];
+const ic=n=>`<svg class="ic"><use href="#i-${n}"/></svg>`;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ls={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const PIN="mahdi a",COL={q:"questions",e:"exams",v:"visitors",r:"results",b:"bans",a:"attendance"};
+const S={q:[],e:[],v:[],r:[],b:[],a:[]};
+let db=null,uid=null,me=ls.get("me"),attempts=ls.get("att")||[],unlocked=false,ready=false,subAdm=false,errs={},atab="v",prevLive=null,loaded={};
+const DQ=[
+{q:"واژه «جامعه‌شناسی» (سوسیولوژی) را چه کسی ابداع کرد؟",o:["ابن‌خلدون","اگوست کنت","ماکس وبر","امیل دورکیم"],a:1},
+{q:"جامعه‌شناسی به مطالعه‌ی چه چیزی می‌پردازد؟",o:["فقط رفتار فردی انسان","زندگی اجتماعی انسان‌ها","فقط تاریخ گذشته","فقط اقتصاد جامعه"],a:1},
+{q:"کنش انسان چه ویژگی‌ای دارد که آن را از رفتار غریزی جدا می‌کند؟",o:["آگاهانه و هدف‌دار است","همیشه غیرارادی است","فقط در گروه رخ می‌دهد","همیشه یکسان است"],a:0},
+{q:"کنش اجتماعی کنشی است که:",o:["تنها در تنهایی انجام شود","با توجه به دیگران انجام شود","بدون هدف باشد","فقط توسط دولت انجام شود"],a:1},
+{q:"چه کسی در کتاب «مقدمه» علمی به نام «علم عمران» را مطرح کرد؟",o:["فارابی","ابن‌سینا","ابن‌خلدون","خواجه نصیر"],a:2},
+{q:"«هنجارها» چه هستند؟",o:["قواعد و معیارهای رفتار در جامعه","فقط قوانین مجازات","وسایل مادی جامعه","نام گروه‌های اجتماعی"],a:0},
+{q:"فرایند یادگیری هنجارها و ارزش‌های جامعه توسط افراد چه نام دارد؟",o:["جامعه‌پذیری","مهاجرت","تورم","نوآوری"],a:0},
+{q:"ارزش‌ها در جامعه به چه چیزهایی گفته می‌شود؟",o:["آنچه جامعه آن را خوب و مطلوب می‌داند","قیمت کالاها","اشیای قدیمی","قوانین رانندگی"],a:0},
+{q:"جایگاه فرد در گروه یا جامعه که با انتظارات رفتاری همراه است، چه نام دارد؟",o:["نقش اجتماعی","فرهنگ","کنش غریزی","آرمان"],a:0},
+{q:"کدام مورد از ویژگی‌های پدیده‌های اجتماعی است؟",o:["حاصل کنش‌های جمعی انسان‌هاست","فقط به یک نفر مربوط است","هیچ تأثیری بر افراد ندارد","غیرقابل مطالعه است"],a:0},
+{q:"جامعه‌شناسی چه تفاوتی با نظرات عامیانه درباره‌ی جامعه دارد؟",o:["بر پایه‌ی مطالعه و شواهد منظم است","هیچ تفاوتی ندارد","فقط به احساسات توجه می‌کند","فقط به گذشته نگاه می‌کند"],a:0}
+];
+const seedQ=()=>DQ.map((x,i)=>({id:"d"+i,...x,ts:i}));
+const seedE=()=>[{id:"d_exam",title:"آزمون نمونه",minutes:10,qs:DQ,ts:1}];
+const uidn=()=>"x"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+
+/* ---------- theme ---------- */
+function setTheme(t){document.documentElement.dataset.theme=t;ls.set("th",t);$("th").innerHTML=ic(t==="dark"?"sun":"moon")}
+setTheme(ls.get("th")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+$("th").onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+
+/* ---------- data layer ---------- */
+function persist(k){if(k==="q"||k==="e")ls.set("c_"+k,S[k])}
+function loadLocal(){
+  ["q","e"].forEach(k=>{S[k]=ls.get("c_"+k)||[]});
+  S.v=me?[{id:uid,name:me.name,phone:me.phone,ts:me.ts}]:[];
+  S.r=attempts.length&&me?[{id:uid,name:me.name,phone:me.phone,attempts}]:[];
+}
+function sub(k){
+  try{db.collection(COL[k]).onSnapshot(s=>{S[k]=s.docs.map(d=>({id:d.id,...d.data()}));errs[k]=false;loaded[k]=true;draw()},()=>{errs[k]=true;draw()})}catch(e){errs[k]=true}
+}
+function put(k,id,data){
+  if(db)return db.collection(COL[k]).doc(id).set(data).catch(()=>{errs.w=true;draw()});
+  const i=S[k].findIndex(x=>x.id===id);const o={id,...data};i>=0?S[k][i]=o:S[k].push(o);persist(k);draw();return Promise.resolve();
+}
+function del(k,id){
+  if(db)return db.collection(COL[k]).doc(id).delete().catch(()=>{});
+  S[k]=S[k].filter(x=>x.id!==id);persist(k);draw();return Promise.resolve();
+}
+async function clearCol(k){await Promise.all(S[k].map(x=>del(k,x.id)));if(!db){S[k]=[];persist(k);draw()}}
+function sync(){
+  if(!db||!uid||!me)return;
+  db.collection(COL.v).doc(uid).set({fn:me.fn,ln:me.ln,name:me.name,phone:me.phone,ts:me.ts}).catch(()=>{});
+  if(attempts.length)db.collection(COL.r).doc(uid).set({name:me.name,phone:me.phone,attempts:attempts.slice(-10)}).catch(()=>{});
+}
+(async()=>{
+  try{const u=await claude.use("user");if(u)uid=await u.id()}catch(e){}
+  try{db=await claude.use("db")}catch(e){}
+  if(!uid){uid=ls.get("uid")||("g"+Math.random().toString(36).slice(2,10));ls.set("uid",uid)}
+  ready=true;
+  if(db){sub("q");sub("e");sub("b");sync()}else loadLocal();
+  if(unlocked)subAdmin();draw();
+})();
+function subAdmin(){if(subAdm)return;subAdm=true;if(db){sub("v");sub("r");sub("a")}}
+
+/* ---------- ban + attendance helpers ---------- */
+async function hashPhone(p){try{const d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("exam|"+p));return "b"+[...new Uint8Array(d)].slice(0,10).map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return "b"+p}}
+let myH=null;
+function setH(){if(me&&me.phone)hashPhone(me.phone).then(h=>{myH=h;draw()})}
+const isBanned=()=>!!myH&&S.b.some(x=>x.id===myH);
+const HC={};
+function hOf(p){if(p in HC)return HC[p];HC[p]="";hashPhone(p).then(h=>{HC[p]=h;if(unlocked&&$("dr").classList.contains("on"))renderAdmin()});return ""}
+const isBan=p=>{const h=hOf(p);return !!h&&S.b.some(x=>x.id===h)};
+const banBtn=p=>isBan(p)?`<button class="btn g" data-act="unban" data-ph="${esc(p)}">رفع مسدودی</button>`:`<button class="btn d" data-act="ban" data-ph="${esc(p)}">${ic("lock")} مسدود</button>`;
+const banChip=p=>isBan(p)?'<span class="chip" style="background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no)">مسدود</span>':"";
+function markAtt(e){if(unlocked||!me||!me.phone)return;put("a",me.phone+"_"+e.id,{name:me.name,phone:me.phone,examId:e.id,title:e.title,ts:Date.now()})}
+setH();
+
+/* ---------- gate ---------- */
+const fa2en=s=>s.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+
+$("gb").onclick=()=>{
+  const n=$("gn").value.trim(),p=fa2en($("gp").value.trim()).replace(/\s|-/g,"");
+  if(n.length<3){$("ge").textContent="نام را کامل وارد کن.";return}
+  if(!/^09\d{9}$/.test(p)){$("ge").textContent="شماره تماس معتبر نیست (مثل 09123456789).";return}
+  me={name:n,phone:p,ts:Date.now()};ls.set("me",me);$("gate").classList.remove("on");sync();draw();
+};
+
+/* ---------- navigation ---------- */
+const dockBtns=[...document.querySelectorAll("#dock button")];
+function pillTo(box,btn){const p=box.querySelector(".pill");if(!btn||!btn.offsetWidth)return;p.style.left=btn.offsetLeft+"px";p.style.width=btn.offsetWidth+"px"}
+function go(n){
+  document.querySelectorAll(".pg").forEach(p=>p.classList.toggle("on",p.id==="pg-"+n));
+  dockBtns.forEach(b=>b.classList.toggle("on",b.dataset.go===n));
+  pillTo($("dock"),dockBtns.find(b=>b.dataset.go===n));
+  if(n==="home")count();scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)go(g.dataset.go)});
+addEventListener("resize",()=>{pillTo($("dock"),dockBtns.find(b=>b.classList.contains("on")));pillTo($("aseg"),$("aseg").querySelector(".on"))});
+setTimeout(()=>pillTo($("dock"),dockBtns[0]),60);
+function count(){
+  [["nq",S.q.length],["ne",S.e.length]].forEach(([id,n])=>{const el=$(id);let i=0;const st=Math.max(1,Math.ceil(n/20));const t=setInterval(()=>{i=Math.min(n,i+st);el.textContent=i;if(i>=n)clearInterval(t)},35)});
+}
+
+/* ---------- rendering ---------- */
+const load='<div class="card mu">در حال بارگذاری…</div>';
+function draw(){
+  
+  if(!ready){$("qlist").innerHTML=load;$("elist").innerHTML=load;return}liveFx();
+  if(document.getElementById("pg-home").classList.contains("on")){$("nq").textContent=S.q.length;$("ne").textContent=S.e.length}
+  const qs=[...S.q].sort((a,b)=>(a.ts||0)-(b.ts||0));
+  {const h=qHtml(qs);if(h!==draw.q){draw.q=h;$("qlist").innerHTML=h}}
+  const es=[...S.e].sort((a,b)=>(b.ts||0)-(a.ts||0));
+  $("elist").innerHTML=es.map((x,i)=>`<div class="card ex" style="--i:${Math.min(i,10)}"><b>${esc(x.title)}</b><div style="margin:6px 0"><span class="chip">${(x.qs||[]).length} سوال</span> <span class="chip">${esc(x.minutes)} دقیقه</span> ${x.live?'<span class="chip live">در حال برگزاری</span>':'<span class="chip">شروع نشده</span>'}</div><div class="row">${x.live?`<button class="btn" data-act="start" data-id="${esc(x.id)}">${ic("play")} ورود به آزمون</button>`:'<button class="btn g" disabled>منتظر شروع آزمون…</button>'}<button class="btn ao ${x.live?"d":""}" data-act="live" data-id="${esc(x.id)}">${x.live?ic("close")+" پایان آزمون":ic("play")+" شروع آزمون برای همه"}</button>${x.live?"":`<button class="btn g ao" data-act="start" data-id="${esc(x.id)}">اجرای آزمایشی</button>`}<button class="btn g ao" data-act="dupe" data-id="${esc(x.id)}">کپی</button><button class="btn g ao" data-act="edite" data-id="${esc(x.id)}">${ic("edit")} ویرایش</button><button class="btn d ao" data-act="dele" data-id="${esc(x.id)}">${ic("trash")} حذف</button></div></div>`).join("")||'<div class="card mu">هنوز آزمونی ساخته نشده.</div>';
+  if($("dr").classList.contains("on"))renderAdmin();
+}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act,id=b.dataset.id;
+  if(a==="ans"){const c=b.closest(".qc"),on=c.classList.toggle("rv");on?SH.add(id):SH.delete(id);b.textContent=on?"پنهان کردن":"نمایش پاسخ"}
+  if(a==="delq"&&await ask("این سوال حذف شود؟"))del("q",id);
+  if(a==="dele"&&await ask("این آزمون حذف شود؟"))del("e",id);
+  if(a==="start")startExam(id);
+  if(a==="delv"&&await ask("این ثبت‌نام حذف شود؟"))del("v",id);
+  if(a==="delr"&&await ask("نتایج این فرد حذف شود؟"))del("r",id);
+  if(a==="ban"||a==="unban"){const h=await hashPhone(b.dataset.ph);if(a==="ban"){if(await ask("این دانش‌آموز از شرکت در آزمون‌ها محروم شود؟"))put("b",h,{ts:Date.now()})}else del("b",h)}
+});
+
+/* ---------- generic modal ---------- */
+function modal(html,wide,sm){$("gmb").className="modal"+(wide?" wide":"")+(sm?" ask":"");$("gmb").innerHTML=html;$("gm").classList.add("on")}
+function closeModal(){$("gm").classList.remove("on")}
+function ask(msg){return new Promise(res=>{
+  modal(`<h3>مطمئنی؟</h3><p class="mu">${esc(msg)}</p><div class="row"><button class="btn" id="cy" style="flex:1">بله</button><button class="btn g" id="cn" style="flex:1">انصراف</button></div>`,0,1);
+  $("cy").onclick=()=>{closeModal();res(true)};$("cn").onclick=()=>{closeModal();res(false)};
+})}
+$("addq").onclick=()=>{
+  modal(`<h3>سوال جدید</h3><input id="mq" placeholder="متن سوال">${[0,1,2,3].map(i=>`<input id="mo${i}" placeholder="گزینه ${L[i]}">`).join("")}<select id="ma">${L.map((l,i)=>`<option value="${i}">پاسخ درست: ${l}</option>`).join("")}</select><div class="err" id="me"></div><div class="row"><button class="btn" id="ms" style="flex:1">ذخیره</button><button class="btn g" id="mc">بستن</button></div>`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{
+    const q=$("mq").value.trim(),o=[0,1,2,3].map(i=>$("mo"+i).value.trim());
+    if(!q||o.some(x=>!x)){$("me").textContent="سوال و هر چهار گزینه را پر کن.";return}
+    put("q",uidn(),{q,o,a:+$("ma").value,ts:Date.now()});closeModal();
+  };
+};
+$("adde").onclick=()=>{
+  if(!S.q.length){modal(`<h3>ابتدا سوال اضافه کن</h3><p class="mu">برای ساخت آزمون، باید حداقل یک نمونه سوال داشته باشی.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal;return}
+  modal(`<h3>آزمون جدید</h3><input id="et" placeholder="عنوان آزمون"><input id="em" type="number" min="1" max="180" value="10" placeholder="مدت (دقیقه)"><p class="mu" style="margin:8px 0 0">سوال‌ها را انتخاب کن:</p>${[...S.q].sort((a,b)=>(a.ts||0)-(b.ts||0)).map(x=>`<label class="row" style="justify-content:flex-start;align-items:flex-start;margin:6px 0"><input type="checkbox" class="ck" value="${esc(x.id)}" checked><span>${x.img?"🖼 سوال تصویری ":""}${esc(x.q)}</span></label>`).join("")}<div class="err" id="me"></div><div class="row"><button class="btn" id="ms" style="flex:1">ساخت آزمون</button><button class="btn g" id="mc">بستن</button></div>`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{
+    const t=$("et").value.trim(),m=Math.max(1,Math.min(180,+$("em").value||10)),ids=[...document.querySelectorAll(".ck:checked")].map(c=>c.value);
+    if(!t){$("me").textContent="عنوان را وارد کن.";return}
+    if(!ids.length){$("me").textContent="حداقل یک سوال انتخاب کن.";return}
+    const qs=S.q.filter(x=>ids.includes(x.id)).map(pick);
+    put("e",uidn(),{title:t,minutes:m,qs,ts:Date.now()});closeModal();
+  };
+};
+
+/* ---------- exam ---------- */
+let X={};
+const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+function startExam(id){
+  const e=S.e.find(x=>x.id===id);if(!e||!(e.qs||[]).length)return;if(!e.live&&!unlocked)return;
+  if(!unlocked&&isBanned()){modal(`<h3>دسترسی مسدود است</h3><p class="mu">مدیر شرکت تو در آزمون‌ها را متوقف کرده است. برای پیگیری با مدیر تماس بگیر.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal;return}
+  markAtt(e);
+  X={e,qs:shuffle(e.qs),ans:[],cur:0,left:(e.minutes||10)*60};X.ans=X.qs.map(()=>-1);
+  $("ex-list-wrap").classList.add("hide");$("ex-res").classList.add("hide");$("ex-run").classList.remove("hide");
+  clearInterval(X.t);X.t=setInterval(()=>{X.left--;tick();if(X.left<=0)finish()},1000);tick();show();scrollTo({top:0,behavior:"smooth"});
+}
+function tick(){const m=Math.floor(X.left/60),s=X.left%60;$("tm").innerHTML=ic("clock")+` ${m}:${String(s).padStart(2,"0")}`}
+function pbar(){$("pb").style.width=(X.ans.filter(v=>v>=0).length/X.qs.length*100)+"%"}
+function show(d){
+  const x=X.qs[X.cur];$("prog").textContent=`سوال ${X.cur+1} از ${X.qs.length}`;pbar();
+  $("qbox").innerHTML=`<div class="card qrun ${d>0?"nx":d<0?"pv":""}">${x.img?`<img class="qimg" loading="lazy" decoding="async" src="${x.img}">`:""}${x.q?`<b>${esc(x.q)}</b>`:""}<div class="${x.img?"qop four":""}">${x.o.map((o,j)=>`<button class="opt${X.ans[X.cur]==j?" sel":""}" data-j="${j}" style="--i:${j}">${L[j]}${o?") "+esc(o):""}</button>`).join("")}</div></div>`;
+  $("qbox").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{X.ans[X.cur]=+b.dataset.j;$("qbox").querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel",o===b));pbar()});
+}
+$("prev").onclick=()=>{if(X.cur>0){X.cur--;show(-1)}};
+$("next").onclick=()=>{if(X.cur<X.qs.length-1){X.cur++;show(1)}};
+$("fin").onclick=async()=>{if(await ask("آزمون را پایان می‌دهی؟"))finish()};
+function finish(){
+  clearInterval(X.t);let ok=0;X.qs.forEach((x,i)=>{if(X.ans[i]==x.a)ok++});
+  attempts.push({examId:X.e.id,title:X.e.title,score:ok,total:X.qs.length,dur:(X.e.minutes||10)*60-X.left,ts:Date.now()});attempts=attempts.slice(-10);ls.set("att",attempts);sync();
+  $("ex-run").classList.add("hide");$("ex-res").classList.remove("hide");
+  $("ex-res").innerHTML=`<div class="card hero"><h2>نمره: ${ok} از ${X.qs.length}</h2><p style="margin:4px 0 12px">درصد: ${Math.round(ok/X.qs.length*100)}٪</p><button class="btn g" id="back">بازگشت به آزمون‌ها</button></div>`+
+  X.qs.map((x,i)=>`<div class="card rv2" style="--i:${Math.min(i,10)}"><b>${i+1}. ${esc(x.q)}</b>${x.img?`<img class="qimg" loading="lazy" decoding="async" src="${x.img}">`:""}<div class="${x.img?"qop four":""}">${x.o.map((o,j)=>`<div class="opt ${j==x.a?"ok":(j==X.ans[i]?"no":"")}">${L[j]}${o?") "+esc(o):""}</div>`).join("")}</div>${X.ans[i]==-1?'<div class="mu">بدون پاسخ</div>':""}</div>`).join("");
+  $("back").join("");
+  $("back").onclick=()=>{$("ex-res").classList.add("hide");$("ex-list-wrap").classList.remove("hide")};
+  scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- PIN + admin ---------- */
+$("hb").onclick=()=>{
+  if(!unlocked){$("pinm").classList.add("on");setTimeout(()=>$("pin").focus(),300);return}
+  drawer();
+};
+function drawer(f){const on=f===undefined?!$("dr").classList.contains("on"):f;$("dr").classList.toggle("on",on);$("hb").classList.toggle("x",on);$("hb").innerHTML=ic(on?"close":"menu");$("bk").classList.toggle("on",on);if(on){renderAdmin();setTimeout(()=>pillTo($("aseg"),$("aseg").querySelector(".on")),80)}}
+$("pc").onclick=()=>{$("pinm").classList.remove("on");$("pe").textContent="";$("pin").value=""};
+$("pb1").onclick=chk;$("pin").onkeydown=e=>{if(e.key==="Enter")chk()};
+function chk(){
+  if($("pin").value.trim().toLowerCase()===PIN){
+    unlocked=true;document.body.classList.add("adm");$("hb").classList.add("adm");$("pin").value="";$("pe").textContent="";$("pinm").classList.remove("on");
+    if(ready)subAdmin();drawer(true);draw();
+  }else{$("pe").textContent="رمز اشتباه است.";const b=$("pinbox");b.classList.remove("shake");void b.offsetWidth;b.classList.add("shake")}
+}
+$("lock").onclick=()=>{unlocked=false;document.body.classList.remove("adm");$("hb").classList.remove("adm");drawer(false)};
+$("bk").onclick=()=>drawer(false);
+addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)});
+$("aseg").onclick=e=>{const b=e.target.closest("button");if(!b)return;atab=b.dataset.t;[...$("aseg").querySelectorAll("button")].forEach(x=>x.classList.toggle("on",x===b));pillTo($("aseg"),b);renderAdmin()};
+const fd=t=>t?new Date(t).toLocaleString("fa-IR"):"";
+let aex=null;
+function renderAdmin(){
+  const n=$("anote"),l=$("alist");if(atab==="t"&&document.activeElement&&document.activeElement.tagName==="INPUT"&&l.contains(document.activeElement))return;
+  if(!db)n.textContent="ذخیره‌ی مرکزی در دسترس نیست؛ فقط داده‌های همین دستگاه دیده می‌شود.";
+  else if(errs.v||errs.r)n.textContent="اجازه‌ی خواندن بعضی لیست‌ها را نداری.";else n.textContent="";
+  if(atab==="v"){
+    n.textContent+=` ثبت‌نام‌ها: ${S.v.length}`;
+    l.innerHTML=[...S.v].sort((a,b)=>(a.ts||0)-(b.ts||0)).map((v,i)=>{const nat=S.a.filter(x=>x.phone===v.phone).length;return `<div class="it"><div class="row"><b>${i+1}. ${esc(v.name)}</b><span style="display:flex;gap:6px">${banBtn(v.phone)}<button class="btn d" data-act="delv" data-id="${esc(v.id)}">${ic("trash")}</button></span></div><div class="mu"><a href="tel:${esc(v.phone)}" style="color:inherit;text-decoration:none">${ic("phone")} ${esc(v.phone)}</a></div><div class="mu">ثبت‌نام: ${esc(fd(v.ts))} · حضور در ${nat} آزمون ${banChip(v.phone)}</div></div>`}).join("")||'<p class="mu">موردی نیست.</p>';
+  }else if(atab==="r"){
+    n.textContent+=` شرکت‌کنندگان: ${S.r.length}`;
+    l.innerHTML=S.r.map(r=>{const v=S.v.find(x=>x.id===r.id)||{};const at=r.attempts||[];const pc=at.map(a=>a.total?Math.round(a.score/a.total*100):0);const best=pc.length?Math.max(...pc):0,avg=pc.length?Math.round(pc.reduce((x,y)=>x+y,0)/pc.length):0;return `<div class="it"><div class="row"><b>${esc(r.name)}</b><span style="display:flex;gap:6px">${banBtn(r.phone)}<button class="btn d" data-act="delr" data-id="${esc(r.id)}">${ic("trash")}</button></span></div><div class="mu">${ic("phone")} ${esc(r.phone)}${v.ts?` · ثبت‌نام: ${esc(fd(v.ts))}`:""} ${banChip(r.phone)}</div><div style="margin:6px 0"><span class="chip">${at.length} آزمون</span> <span class="chip">بهترین: ${best}٪</span> <span class="chip">میانگین: ${avg}٪</span></div>${at.slice().reverse().map((a,i)=>`<div class="mu">${esc(a.title||"آزمون")}: ${esc(a.score)} از ${esc(a.total)} (${pc[at.length-1-i]}٪)${a.dur?` · ${Math.max(1,Math.round(a.dur/60))} دقیقه`:""} · ${esc(fd(a.ts))}</div>`).join("")}</div>`}).join("")||'<p class="mu">موردی نیست.</p>';
+  }else if(atab==="a"){
+    const es=[...S.e].sort((a,b)=>(b.ts||0)-(a.ts||0));
+    if(!es.length){l.innerHTML='<p class="mu">هنوز آزمونی ساخته نشده.</p>';return}
+    if(!es.some(x=>x.id===aex))aex=es[0].id;
+    const at={};S.a.filter(x=>x.examId===aex).forEach(x=>{at[x.phone]=x});
+    const vs=[...S.v].sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""),"fa"));
+    const pr=vs.filter(v=>at[v.phone]).length;
+    n.textContent+=` حضور و غیاب · حاضر: ${pr} از ${vs.length} · غایب: ${vs.length-pr}`;
+    l.innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0">${es.map(x=>`<button class="chip ${x.id===aex?"live":""}" data-ae="${esc(x.id)}" style="border:0;cursor:pointer;font:inherit">${esc(x.title)}</button>`).join("")}</div>`+vs.map((v,i)=>{const a=at[v.phone];return `<div class="it"><div class="row"><b>${i+1}. ${esc(v.name)}</b>${a?'<span class="chip live">حاضر</span>':'<span class="chip" style="background:color-mix(in srgb,var(--no) 14%,transparent);color:var(--no)">غایب</span>'}</div><div class="mu">${ic("phone")} ${esc(v.phone)}${a?` · ورود: ${esc(fd(a.ts))}`:""}</div></div>`}).join("")||'<p class="mu">ثبت‌نامی نیست.</p>';
+  }else if(atab==="s"){statsHtml(n,l)}else if(atab==="t"){toolsHtml(n,l)}else{
+    l.innerHTML=[["v","ثبت‌نام‌ها"],["r","نتایج"],["e","آزمون‌ها"],["q","سوال‌ها"],["a","حضور و غیاب"]].map(([k,t])=>`<div class="it row"><span>${t} (${S[k].length})</span><button class="btn d" data-clr="${k}">حذف همه</button></div>`).join("")+
+    `<div class="it row"><b>همه چیز</b><button class="btn d" data-clr="all">حذف کامل</button></div>`+
+    "";
+    const sd=$("seed");if(sd)sd.onclick=()=>{seedQ().forEach(x=>put("q",x.id,{q:x.q,o:x.o,a:x.a,ts:x.ts}));const e=seedE()[0];put("e",e.id,{title:e.title,minutes:e.minutes,qs:e.qs,ts:Date.now()})};
+  }
+}
+$("alist").onclick=async e=>{
+  const ae=e.target.closest("[data-ae]");if(ae){aex=ae.dataset.ae;renderAdmin();return}
+  const b=e.target.closest("[data-clr]");if(!b)return;const k=b.dataset.clr;
+  if(!await ask(k==="all"?"همه‌ی اطلاعات (ثبت‌نام‌ها، نتایج، آزمون‌ها و سوال‌ها) حذف شود؟":"همه‌ی موارد این بخش حذف شوند؟"))return;
+  if(k==="all"){for(const x of ["v","r","e","q","a"])await clearCol(x)}else await clearCol(k);
+};
+/* ---------- editors / upload ---------- */
+const blk0=(x,i,keep)=>`<div class="qb"><div class="row">${keep?`<label class="chip"><input type="checkbox" class="kp" checked> سوال ${i+1}${x.guessed?" · پاسخ حدسی، بررسی کن":""}</label>`:`<span class="chip">سوال ${i+1}</span>`}</div><input class="qt" placeholder="متن سوال" value="${esc(x.q||"")}">${[0,1,2,3].map(j=>`<input class="qo" placeholder="گزینه ${L[j]}" value="${esc((x.o||[])[j]||"")}">`).join("")}<select class="qa">${L.map((l,j)=>`<option value="${j}" ${x.a===j?"selected":""}>پاسخ درست: ${l}</option>`).join("")}</select></div>`;
+const rd0=root=>[...root.querySelectorAll(".qb")].map(b=>{const k=b.querySelector(".kp");return{keep:!k||k.checked,q:b.querySelector(".qt").value.trim(),o:[...b.querySelectorAll(".qo")].map(i=>i.value.trim()),a:+b.querySelector(".qa").value}}).filter(x=>x.keep&&x.q&&x.o.every(Boolean)).map(({q,o,a})=>({q,o,a}));
+const btns='<div class="row"><button class="btn" id="ms" style="flex:1">ذخیره</button><button class="btn g" id="mc">بستن</button></div>';
+$("addq").onclick=()=>{
+  modal(`<h3>سوال جدید</h3><div id="bx">${blk({},0,false)}</div><div class="err" id="me"></div>${btns}`);
+  $("mc").onclick=closeModal;
+  $("ms").onclick=()=>{const a=rd($("bx"));if(!a.length){$("me").textContent="سوال و هر چهار گزینه را پر کن.";return}put("q",uidn(),{...a[0],ts:Date.now()});closeModal()};
+};
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest("[data-act]");if(!b)return;const id=b.dataset.id;
+  if(b.dataset.act==="editq"){
+    const x=S.q.find(q=>q.id===id);if(!x)return;
+    modal(`<h3>ویرایش سوال</h3><div id="bx">${blk(x,0,false)}</div><div class="err" id="me"></div>${btns}`);
+    $("mc").onclick=closeModal;
+    $("ms").onclick=()=>{const a=rd($("bx"));if(!a.length){$("me").textContent="همه‌ی فیلدها را پر کن.";return}put("q",id,{...a[0],ts:x.ts||Date.now()});closeModal()};
+  }
+  if(b.dataset.act==="edite"){
+    const x=S.e.find(q=>q.id===id);if(!x)return;
+    modal(`<h3>ویرایش آزمون</h3><input id="et" value="${esc(x.title)}" placeholder="عنوان آزمون"><label class="mu">مدت آزمون (دقیقه)</label><input id="em" type="number" min="1" max="180" value="${esc(x.minutes||10)}"><div id="bx">${(x.qs||[]).map((q,i)=>blk(q,i,true)).join("")}</div><button class="btn g" id="addb">${ic("plus")} سوال خالی</button><div class="err" id="me"></div>${btns}`,true);
+    $("mc").onclick=closeModal;
+    $("addb").onclick=()=>{const bx=$("bx");bx.insertAdjacentHTML("beforeend",blk({},bx.children.length,true))};
+    $("ms").onclick=()=>{
+      const t=$("et").value.trim(),m=Math.max(1,Math.min(180,+$("em").value||10)),qs=rd($("bx"));
+      if(!t){$("me").textContent="عنوان را وارد کن.";return}
+      if(!qs.length){$("me").textContent="حداقل یک سوال کامل لازم است.";return}
+      put("e",id,{title:t,minutes:m,qs,ts:x.ts||Date.now(),live:!!x.live,liveAt:x.liveAt||0});closeModal();
+    };
+  }
+});
+/* upload from phone: image or PDF */
+async function loadPdfjs(){
+  if(window.pdfjsLib)return;
+  await new Promise((ok,no)=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+}
+async function readPdf(f,room){
+  await loadPdfjs();
+  const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,n=Math.min(pdf.numPages,30);
+  let text="",imgs=[];
+  for(let i=1;i<=n;i++){const pg=await pdf.getPage(i);const tc=await pg.getTextContent();text+=tc.items.map(t=>t.str).join(" ")+"\n"}
+  if(text.replace(/\s/g,"").length<30*n){
+    text="";
+    for(let i=1;i<=Math.min(n,room);i++){
+      const pg=await pdf.getPage(i),vp=pg.getViewport({scale:1.6}),c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;
+      await pg.render({canvasContext:c.getContext("2d"),viewport:vp}).promise;
+      imgs.push(await new Promise(r=>c.toBlob(r,"image/jpeg",.85)));
+    }
+  }
+  return{text,imgs};
+}
+/* upload: image / PDF page -> added exactly as an image question */
+let ctl=null;
+$("upq").onclick=$("upe").onclick=()=>{$("fi").value="";$("fi").click()};
+$("fi").onchange=()=>{const fs=[...$("fi").files];if(fs.length)extract(fs)};
+function cmp(src,w,h){let best="";for(const mw of[1000,860,720]){const k=Math.min(1,mw/w),c=document.createElement("canvas");c.width=Math.round(w*k);c.height=Math.round(h*k);const g=c.getContext("2d");g.fillStyle="#fff";g.fillRect(0,0,c.width,c.height);g.drawImage(src,0,0,c.width,c.height);for(const q of[.72,.6,.48]){best=c.toDataURL("image/jpeg",q);if(best.length<=90000)return best}}return best}
+const loadImg=f=>new Promise((ok,no)=>{const u=URL.createObjectURL(f),i=new Image();i.onload=()=>{ok(i);URL.revokeObjectURL(u)};i.onerror=no;i.src=u});
+async function extract(files){
+  modal(`<h3>در حال آماده‌سازی…</h3><p class="mu" id="upg">لطفاً صبر کن</p>`);const out=[];
+  try{
+    for(const f of files){
+      if(f.type==="application/pdf"||/\.pdf$/i.test(f.name)){
+        await loadPdfjs();const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,n=Math.min(pdf.numPages,40);
+        for(let i=1;i<=n;i++){$("upg").textContent=`PDF: صفحه ${i} از ${n}`;const pg=await pdf.getPage(i),v0=pg.getViewport({scale:1}),v=pg.getViewport({scale:1000/v0.width}),c=document.createElement("canvas");c.width=v.width;c.height=v.height;await pg.render({canvasContext:c.getContext("2d"),viewport:v}).promise;out.push({q:"",o:["","","",""],a:-1,img:cmp(c,c.width,c.height)})}
+      }else if(f.type.startsWith("image/")){$("upg").textContent="در حال پردازش عکس…";const im=await loadImg(f);out.push({q:"",o:["","","",""],a:-1,img:cmp(im,im.naturalWidth,im.naturalHeight)})}
+    }
+    if(!out.length)throw 0;review(out);
+  }catch(e){modal(`<h3>انجام نشد</h3><p class="mu">فایل خوانده نشد؛ عکس یا PDF دیگری امتحان کن.</p><button class="btn" id="mc" style="width:100%">باشه</button>`);$("mc").onclick=closeModal}
+}
+function review(items){
+  modal(`<h3>${items.length} سوال پیدا شد</h3><p class="mu">پاسخ‌ها را بررسی و در صورت نیاز ویرایش کن. با برداشتن تیک، آن سوال اضافه نمی‌شود.</p><div id="bx">${items.map((x,i)=>blk(x,i,true)).join("")}</div><input id="ut" placeholder="عنوان آزمون (برای ساخت آزمون)"><label class="mu">مدت آزمون (دقیقه)</label><input id="um" type="number" min="1" max="180" value="10"><div class="err" id="me"></div><div class="row"><button class="btn" id="u1">افزودن به سوالات</button><button class="btn" id="u2">ساخت آزمون</button><button class="btn" id="u3">هر دو</button><button class="btn g" id="mc">بستن</button></div>`,true);
+  $("mc").onclick=closeModal;
+  const run=(addQ,addE)=>{
+    if([...document.querySelectorAll("#bx .qb.im")].some(b=>b.querySelector(".kp").checked&&!b.querySelector(".ab.on"))){$("me").textContent="برای هر عکس، گزینه‌ی درست را انتخاب کن.";return}
+    const qs=rd($("bx"));if(!qs.length){$("me").textContent="حداقل یک سوال کامل لازم است.";return}
+    const t=$("ut").value.trim();if(addE&&!t){$("me").textContent="برای ساخت آزمون، عنوان را وارد کن.";return}
+    if(addQ)qs.forEach((x,i)=>put("q",uidn(),{...x,ts:Date.now()+i}));
+    if(addE)put("e",uidn(),{title:t,minutes:Math.max(1,Math.min(180,+$("um").value||10)),qs,ts:Date.now()});
+    closeModal();go(addE?"e":"q");
+  };
+  $("u1").onclick=()=>run(true,false);$("u2").onclick=()=>run(false,true);$("u3").onclick=()=>run(true,true);
+}
+/* ---------- mandatory registration gate ---------- */
+const NAMEOK=/^[\u0600-\u06FFa-zA-Z\u200c ]{2,}$/,PHONEOK=/^09\d{9}$/;
+const validMe=m=>!!(m&&m.fn&&m.ln&&PHONEOK.test(m.phone||""));
+function lockUI(on){[document.querySelector(".w"),$("dock"),$("hb"),$("th")].forEach(el=>{if(el)el.inert=on});$("gate").classList.toggle("on",on)}
+lockUI(!validMe(me));
+if(me&&!validMe(me)){const parts=(me.name||"").split(" ");$("gf").value=me.fn||parts[0]||"";$("gl").value=me.ln||parts.slice(1).join(" ");$("gp").value=PHONEOK.test(me.phone||"")?me.phone:""}
+$("gp").oninput=()=>{const v=fa2en($("gp").value).replace(/\D/g,"").slice(0,11);$("gp").value=v;$("gc").textContent=v.length+" از 11 رقم"};
+$("gb").onclick=async()=>{
+  const fn=$("gf").value.trim().replace(/\s+/g," "),ln=$("gl").value.trim().replace(/\s+/g," "),p=fa2en($("gp").value).replace(/\D/g,""),er=$("ge");
+  if(!NAMEOK.test(fn)){er.textContent="نام را درست وارد کن (فقط حروف).";return}
+  if(!NAMEOK.test(ln)){er.textContent="نام خانوادگی را درست وارد کن (فقط حروف).";return}
+  if(!PHONEOK.test(p)){er.textContent="شماره تماس باید دقیقاً 11 رقم باشد و با 09 شروع شود.";return}
+  if(!ready){er.textContent="چند ثانیه صبر کن و دوباره بزن.";return}
+  if(!db){er.textContent="ثبت‌نام فقط با باز کردن لینک اصلی سایت و ورود به حساب Claude ممکن است.";return}
+  const m={fn,ln,name:fn+" "+ln,phone:p,ts:(me&&me.ts)||Date.now()};
+  $("gb").disabled=true;er.textContent="";
+  try{await db.collection(COL.v).doc(uid).set({fn,ln,name:m.name,phone:p,ts:m.ts})}
+  catch(e){er.textContent="ثبت انجام نشد؛ دوباره امتحان کن ("+((e&&e.code)||"خطا")+").";$("gb").disabled=false;return}
+  me=m;ls.set("me",me);$("gb").disabled=false;lockUI(false);setH();sync();draw();
+};
+/* ---------- live exam: green ball + toast ---------- */
+const toast=m=>{const t=$("toast");t.innerHTML=ic("bell")+" "+esc(m);t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),6000)};
+function liveFx(){
+  if(!loaded.e)return;
+  const any=S.e.some(x=>x.live);$("ball").classList.toggle("on",any);
+  if(prevLive===false&&any&&!unlocked)toast("آزمون شروع شد! به تب آزمون‌ها برو.");
+  prevLive=any;
+}
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest('[data-act="live"]');if(!b)return;
+  const x=S.e.find(q=>q.id===b.dataset.id);if(!x)return;
+  put("e",x.id,{title:x.title,minutes:x.minutes,qs:x.qs,ts:x.ts||Date.now(),live:!x.live,liveAt:Date.now()});
+});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>pillTo($("dock"),dockBtns.find(b=>b.classList.contains("on"))));
+
+/* ===== v2 additions ===== */
+const SH=new Set(),pick=x=>x.img?{q:x.q||"",o:["","","",""],a:x.a,img:x.img}:{q:x.q,o:x.o,a:x.a};
+function qHtml(qs){
+  return (errs.w?'<div class="card mu">ذخیره‌سازی انجام نشد (دسترسی نوشتن نداری).</div>':"")+(qs.map((x,i)=>{
+    const o=x.o||[],two=!x.img&&o.every(t=>t.length<=18);
+    return `<div class="qc${SH.has(x.id)?" rv":""}" style="--i:${Math.min(i,12)}"><div class="qh"><span class="qn">${i+1}</span>${x.q?`<span class="qx">${esc(x.q)}</span>`:""}</div>${x.img?`<img class="qimg" loading="lazy" decoding="async" src="${x.img}" alt="">`:""}<div class="qop${x.img?" four":two?" two":""}">${o.map((t,j)=>`<div class="${j===x.a?"c":""}" style="--j:${j}"><i>${L[j]}${x.img?"":")"}</i>${x.img?"":esc(t)}</div>`).join("")}</div><div class="qf"><button class="btn g s" data-act="ans" data-id="${esc(x.id)}">${SH.has(x.id)?"پنهان کردن":"نمایش پاسخ"}</button><button class="btn g s ao" data-act="editq" data-id="${esc(x.id)}">${ic("edit")} ویرایش</button><button class="btn d s ao" data-act="delq" data-id="${esc(x.id)}">${ic("trash")} حذف</button></div></div>`}).join("")||'<div class="card mu">هنوز سوالی ثبت نشده.</div>');
+}
+const iblk=(x,i,keep)=>`<div class="qb im"><div class="row">${keep?`<label class="chip"><input type="checkbox" class="kp" checked> عکس ${i+1}</label>`:'<span class="chip">سوال تصویری</span>'}<span>${L.map((l,j)=>`<button type="button" class="ab${x.a===j?" on":""}" data-j="${j}">${l}</button>`).join(" ")}</span></div><img class="qimg" loading="lazy" decoding="async" src="${x.img}" alt=""><input class="qt" placeholder="عنوان / متن سوال (اختیاری)" value="${esc(x.q||"")}"></div>`;
+const blk=(x,i,keep)=>x.img?iblk(x,i,keep):blk0(x,i,keep);
+const rd=root=>[...root.querySelectorAll(".qb")].map(b=>{const k=b.querySelector(".kp"),keep=!k||k.checked;
+  if(b.classList.contains("im")){const on=b.querySelector(".ab.on");return{keep:keep&&!!on,q:b.querySelector(".qt").value.trim(),o:["","","",""],a:on?+on.dataset.j:0,img:b.querySelector("img").src}}
+  return{keep,q:b.querySelector(".qt").value.trim(),o:[...b.querySelectorAll(".qo")].map(i=>i.value.trim()),a:+b.querySelector(".qa").value}})
+  .filter(x=>x.keep&&(x.img||(x.q&&x.o.every(Boolean)))).map(({keep,...r})=>r);
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".ab");if(b){b.parentNode.querySelectorAll(".ab").forEach(x=>x.classList.toggle("on",x===b));return}
+  const im=e.target.closest(".qimg");if(im){$("lb").innerHTML=`<img src="${im.src}">`;$("lb").classList.add("on");return}
+  if(e.target.closest("#lb")){const i=$("lb").querySelector("img");e.target===i?i.classList.toggle("z"):$("lb").classList.remove("on")}
+});
+/* admin: stats / tools */
+let sx=null;
+function exStats(id){const rows=[];S.r.forEach(r=>{const a=(r.attempts||[]).filter(t=>t.examId===id);if(!a.length)return;const pc=t=>t.total?t.score/t.total:0,b=a.reduce((m,t)=>pc(t)>pc(m)?t:m);rows.push({name:r.name,p:Math.round(pc(b)*100),s:b.score,t:b.total,d:b.dur})});return rows.sort((a,b)=>b.p-a.p||(a.d||9e9)-(b.d||9e9))}
+function statsHtml(n,l){
+  const es=[...S.e].sort((a,b)=>(b.ts||0)-(a.ts||0));if(!es.length){l.innerHTML='<p class="mu">آزمونی نیست.</p>';return}
+  if(!es.some(x=>x.id===sx))sx=es[0].id;const rs=exStats(sx),av=rs.length?Math.round(rs.reduce((t,r)=>t+r.p,0)/rs.length):0,md=["🥇","🥈","🥉"];
+  l.innerHTML=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin:6px 0">${es.map(x=>`<button class="chip ${x.id===sx?"live":""}" data-se="${esc(x.id)}" style="border:0;cursor:pointer;font:inherit">${esc(x.title)}</button>`).join("")}</div><div class="sg"><div><b>${rs.length}</b>شرکت‌کننده</div><div><b>${av}٪</b>میانگین</div><div><b>${rs.length?rs[0].p:0}٪</b>بالاترین</div></div>`+(rs.map((r,i)=>`<div class="it rk" style="--i:${Math.min(i,10)}"><div class="row"><b>${md[i]||i+1+"."} ${esc(r.name)}</b><span class="chip">${r.p}٪</span></div><div class="mu">${r.s} از ${r.t}${r.d?` · ${Math.max(1,Math.round(r.d/60))} دقیقه`:""}</div><div class="sb"><i style="--w:${r.p}%"></i></div></div>`).join("")||'<p class="mu">هنوز کسی در این آزمون شرکت نکرده.</p>');
+}
+function toolsHtml(n,l){
+  l.innerHTML=`<div class="it"><b>خروجی اکسل (CSV)</b><div class="row" style="margin-top:8px;gap:6px"><button class="btn g s" data-tool="c-v">ثبت‌نام‌ها</button><button class="btn g s" data-tool="c-r">نتایج</button><button class="btn g s" data-tool="c-a">حضور و غیاب</button></div></div><div class="it"><b>لیست غایبین</b><p class="mu" style="margin:4px 0 8px">غایبین آزمونِ انتخاب‌شده در تب «حضور» کپی می‌شود تا بتوانی پیگیری کنی.</p><button class="btn s" data-tool="absent">کپی غایبین</button></div><div class="it"><b>آزمون تصادفی سریع</b><input id="rt" placeholder="عنوان" value="آزمون تصادفی"><div class="row" style="flex-wrap:nowrap"><input id="rn" type="number" min="1" max="${S.q.length}" value="${Math.min(10,S.q.length)}" placeholder="تعداد سوال"><input id="rm" type="number" min="1" max="180" value="10" placeholder="دقیقه"></div><button class="btn s" data-tool="rand" style="width:100%">ساخت آزمون</button></div><div class="it"><b>پایان همه آزمون‌های زنده</b><p class="mu" style="margin:4px 0 8px">با یک لمس همه‌ی آزمون‌های در حال برگزاری بسته می‌شوند.</p><button class="btn d s" data-tool="endall">پایان همه</button></div><div class="it"><b>پشتیبان‌گیری</b><p class="mu" style="margin:4px 0 8px">سوال‌ها و آزمون‌ها را در فایل ذخیره یا از فایل بازیابی کن.</p><div class="row" style="gap:6px"><button class="btn g s" data-tool="bk">دانلود پشتیبان</button><button class="btn g s" data-tool="rs">بازیابی</button></div></div><div class="it"><b>حذف سوالات تکراری</b><p class="mu" style="margin:4px 0 8px">سوال‌های کاملاً مشابه پیدا و نسخه‌های اضافی حذف می‌شود.</p><button class="btn d s" data-tool="dd">پاکسازی تکراری‌ها</button></div>`;
+}
+const cc=v=>'"'+String(v??"").replace(/"/g,'""')+'"',cp=p=>'"=""'+p+'"""';
+function dl(name,rows){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\uFEFF"+rows.map(r=>r.join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"}));a.download=name;document.body.appendChild(a);a.click();a.remove();toast("فایل ساخته شد")}
+$("alist").addEventListener("click",async e=>{
+  const se=e.target.closest("[data-se]");if(se){sx=se.dataset.se;renderAdmin();return}
+  const b=e.target.closest("[data-tool]");if(!b)return;const t=b.dataset.tool,fdt=x=>x?new Date(x).toLocaleString("fa-IR"):"";
+  if(t==="c-v")dl("registrations.csv",[["نام","شماره","زمان ثبت‌نام"].map(cc),...S.v.map(v=>[cc(v.name),cp(v.phone),cc(fdt(v.ts))])]);
+  if(t==="c-r")dl("results.csv",[["نام","شماره","آزمون","نمره","از","درصد","زمان"].map(cc),...S.r.flatMap(r=>(r.attempts||[]).map(a=>[cc(r.name),cp(r.phone),cc(a.title),a.score,a.total,a.total?Math.round(a.score/a.total*100):0,cc(fdt(a.ts))]))]);
+  if(t==="c-a"){const ex=S.e.find(x=>x.id===aex)||S.e[0];if(!ex)return;const at=new Set(S.a.filter(x=>x.examId===ex.id).map(x=>x.phone));dl("attendance.csv",[["نام","شماره","وضعیت"].map(cc),...S.v.map(v=>[cc(v.name),cp(v.phone),cc(at.has(v.phone)?"حاضر":"غایب")])])}
+  if(t==="absent"){const ex=S.e.find(x=>x.id===aex)||S.e[0];if(!ex)return;const at=new Set(S.a.filter(x=>x.examId===ex.id).map(x=>x.phone)),tx=S.v.filter(v=>!at.has(v.phone)).map(v=>v.name+" - "+v.phone).join("\n");try{await navigator.clipboard.writeText(tx);toast("لیست غایبین کپی شد")}catch(_){prompt("کپی کن:",tx)}}
+  if(t==="rand"){const nn=Math.max(1,Math.min(S.q.length,+$("rn").value||10));if(!S.q.length){toast("ابتدا سوال اضافه کن");return}put("e",uidn(),{title:$("rt").value.trim()||"آزمون تصادفی",minutes:Math.max(1,Math.min(180,+$("rm").value||10)),qs:shuffle(S.q).slice(0,nn).map(pick),ts:Date.now()});toast("آزمون ساخته شد")}
+});
+
+/* ===== v3 admin extras ===== */
+function flt(){const q=fa2en($("asr").value.trim());$("asr").classList.toggle("hide",!(atab==="v"||atab==="r"));document.querySelectorAll("#alist .it").forEach(e=>{e.style.display=!q||e.textContent.includes(q)?"":"none"})}
+$("asr").oninput=flt;new MutationObserver(flt).observe($("alist"),{childList:true});
+document.addEventListener("click",e=>{const b=e.target.closest('[data-act="dupe"]');if(!b)return;const x=S.e.find(q=>q.id===b.dataset.id);if(!x)return;put("e",uidn(),{title:x.title+" (کپی)",minutes:x.minutes,qs:x.qs,ts:Date.now(),live:false,liveAt:0});toast("آزمون کپی شد")});
+$("alist").addEventListener("click",async e=>{
+  const b=e.target.closest("[data-tool]");if(!b)return;const t=b.dataset.tool;
+  if(t==="endall"){const l=S.e.filter(x=>x.live);if(!l.length){toast("آزمون زنده‌ای نیست");return}if(!await ask("همه‌ی آزمون‌های زنده پایان یابند؟"))return;l.forEach(x=>put("e",x.id,{title:x.title,minutes:x.minutes,qs:x.qs,ts:x.ts||Date.now(),live:false,liveAt:Date.now()}));toast("همه‌ی آزمون‌ها پایان یافت")}
+  if(t==="bk"){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({q:S.q.map(({id,...r})=>r),e:S.e.map(({id,live,liveAt,...r})=>r)})],{type:"application/json"}));a.download="backup.json";document.body.appendChild(a);a.click();a.remove();toast("پشتیبان ساخته شد")}
+  if(t==="rs"){const i=document.createElement("input");i.type="file";i.accept="application/json,.json";i.onchange=async()=>{try{const d=JSON.parse(await i.files[0].text());if(!Array.isArray(d.q)||!Array.isArray(d.e))throw 0;d.q.forEach((x,k)=>put("q",uidn(),{...x,ts:Date.now()+k}));d.e.forEach((x,k)=>put("e",uidn(),{...x,ts:Date.now()+k}));toast(`${d.q.length} سوال و ${d.e.length} آزمون بازیابی شد`)}catch(_){toast("فایل پشتیبان معتبر نیست")}};i.click()}
+  if(t==="dd"){const seen=new Set(),dup=[...S.q].sort((a,b)=>(a.ts||0)-(b.ts||0)).filter(x=>{const k=x.img||(x.q+"|"+(x.o||[]).join("|"));if(seen.has(k))return true;seen.add(k);return false});if(!dup.length){toast("سوال تکراری نیست");return}if(!await ask(dup.length+" سوال تکراری حذف شود؟"))return;dup.forEach(x=>del("q",x.id));toast("تکراری‌ها حذف شد")}
+});
+</script>
+</body>
+</html>
