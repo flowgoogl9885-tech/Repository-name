@@ -1,7 +1,7 @@
 import { getStore } from "@netlify/blobs";
 
-const COLS = new Set(["questions", "exams", "visitors", "results"]);
-const PRIVATE = new Set(["visitors", "results"]);
+const COLS = new Set(["questions", "exams", "visitors", "results", "bans", "attendance"]);
+const PRIVATE = new Set(["visitors", "results", "attendance"]); // فقط مدیر می‌خواند
 const PIN = (process.env.ADMIN_PIN || "mahdi a").trim().toLowerCase();
 const ID_OK = /^[\w-]{1,64}$/;
 
